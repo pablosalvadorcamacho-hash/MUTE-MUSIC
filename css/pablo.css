@@ -1,0 +1,93 @@
+:root {
+    --color-fondo: #090506;
+    --color-superficie: #0E1C27;
+    --color-texto: #FFFFFF;
+    --color-secundario: #CCCCCC;
+    --color-acento: #FE690B;
+    --color-amarillo: #FCA816;
+    --color-borde: #444444;
+
+    --fuente-texto: Arial, Helvetica, sans-serif;
+    --fuente-titulos: "Iosevka Charon", monospace;
+
+}
+
+
+
+/* HOME */
+
+.home-body,
+.home-body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+}
+
+.home-body h1 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+}
+
+
+/* HEADER */
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+
+/* LOGO */
+
+.home-header .logo img {
+    display: block;
+    width: 90px;
+    height: auto;
+}
+
+
+/* MENU */
+
+.home-nav .menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+}
+
+.home-nav a {
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.home-nav a:hover {
+    color: var(--color-acento);
+}
+
+
+/* BOTÓN DE ENTRADAS */
+
+.home-nav .btn-tickets {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-weight: 700;
+}
+
+.home-nav .btn-tickets:hover {
+    background-color: var(--color-amarillo);
+    color: var(--color-fondo);
+}
+
