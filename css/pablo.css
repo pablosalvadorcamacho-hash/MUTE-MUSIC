@@ -15,7 +15,6 @@
 
 
 /* HOME */
-
 .home-body,
 .home-body * {
     margin: 0;
@@ -36,7 +35,6 @@
 
 
 /* HEADER */
-
 .home-header {
     display: flex;
     justify-content: space-between;
@@ -46,7 +44,6 @@
 
 
 /* LOGO */
-
 .home-header .logo img {
     display: block;
     width: 90px;
@@ -55,11 +52,10 @@
 
 
 /* MENU */
-
 .home-nav .menu {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 2vw;
     list-style: none;
 }
 
@@ -77,7 +73,6 @@
 
 
 /* BOTÓN DE ENTRADAS */
-
 .home-nav .btn-tickets {
     display: inline-block;
     padding: 12px 22px;
@@ -91,3 +86,46 @@
     color: var(--color-fondo);
 }
 
+
+
+/* BOTÓN DEL MENÚ: OCULTO EN ESCRITORIO */
+.home-menu-btn {
+    display: none;
+    padding: 10px 16px;
+    border: none;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/* MEDIAQUERY MOBILE */
+@media (max-width: 530px) {
+
+    .home-header {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .home-menu-btn {
+        display: block;
+    }
+
+    .home-nav {
+        display: none;
+        width: 100%;
+    }
+
+    .home-nav.active {
+        display: block;
+    }
+
+    .home-nav .menu {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px 0;
+    }
+}
