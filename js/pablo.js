@@ -1,6 +1,6 @@
 // SELECCIONA EL BOTÓN Y LA NAVEGACIÓN
-var navegacion = document.querySelector(".home-menu-btn");
-var botonMenu = document.querySelector(".home-nav");
+var botonMenu = document.querySelector(".home-menu-btn");
+var navegacion = document.querySelector(".home-nav");
 
 
 // ABRE Y CIERRA EL MENÚ
