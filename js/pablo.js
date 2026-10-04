@@ -190,3 +190,37 @@ preguntas.forEach(function (pregunta) {
     })
 
 })
+
+
+// CALCULAR EL TOTAL DE LOS ABONOS
+var cantidades = document.querySelectorAll(".tickets-cantidad");
+var totalTickets = document.querySelector("#tickets-total");
+
+if (totalTickets) {
+
+    function actualizarTotal() {
+
+        var total = 0;
+
+        cantidades.forEach(function (cantidad) {
+
+            var unidades = Number(cantidad.value);
+            var precio = Number(cantidad.getAttribute("data-precio"));
+
+            total = total + unidades * precio;
+
+        })
+
+        totalTickets.textContent = total + " €";
+
+    }
+
+    cantidades.forEach(function (cantidad) {
+
+        cantidad.addEventListener("change", actualizarTotal);
+
+    })
+
+    actualizarTotal();
+
+}
