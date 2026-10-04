@@ -132,27 +132,58 @@ if (formulario && confirmacion && aceptar) {
 }
 
 
-// REPETIR LA ANIMACIÓN AL ABRIR LOS FAQ
+// ABRIR Y CERRAR LAS FAQ FLUIDO
 var preguntas = document.querySelectorAll(".home-faq details");
 
 preguntas.forEach(function (pregunta) {
 
-    pregunta.addEventListener("toggle", function () {
+    var titulo = pregunta.querySelector("summary");
+    var animando = false;
 
-        if (pregunta.open) {
+    titulo.addEventListener("click", function (evento) {
 
-            var respuesta = pregunta.querySelector("p");
+        // EVITAR QUE SE ABRA O CIERRE BRUSCO
+        evento.preventDefault();
 
-            respuesta.animate(
-                [
-                    { opacity: 0, transform: "translateY(-5px)" },
-                    { opacity: 1, transform: "translateY(0)" }
-                ],
-                {
-                    duration: 250,
-                    easing: "ease-out"
-                }
-            );
+        if (animando) {
+            return;
+        }
+
+        animando = true;
+
+        var estabaAbierta = pregunta.open;
+        var alturaInicial = pregunta.getBoundingClientRect().height;
+        var alturaFinal;
+
+        if (estabaAbierta) {
+
+            // ALTURA DEL TÍTULO MÁS BORDE
+            alturaFinal = titulo.getBoundingClientRect().height + 1;
+
+        } else {
+
+            pregunta.open = true;
+            alturaFinal = pregunta.getBoundingClientRect().height;
+
+        }
+
+        var animacion = pregunta.animate(
+            [
+                { height: alturaInicial + "px" },
+                { height: alturaFinal + "px" }
+            ],
+            {
+                duration: 250,
+                easing: "ease-in-out",
+                fill: "both"
+            }
+        )
+
+        animacion.onfinish = function () {
+
+            pregunta.open = !estabaAbierta;
+            animacion.cancel();
+            animando = false;
 
         }
 

@@ -579,6 +579,7 @@
 /* PREGUNTAS */
 .home-faq details {
     border-bottom: 1px solid var(--color-borde);
+    overflow: hidden;
 }
 
 .home-faq summary {
@@ -709,6 +710,73 @@
 }
 
 
+/* FOOTER */
+.home-footer {
+    padding: 50px 5% 90px;
+    border-top: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    font-family: var(--fuente-titulos);
+}
+
+.home-footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.home-footer-marca img {
+    display: block;
+    width: 90px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.home-footer-marca p {
+    color: var(--color-secundario);
+    font-size: 14px;
+}
+
+.home-footer-info {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.home-footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+}
+
+.home-footer-nav a {
+    color: var(--color-texto);
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.home-footer-nav a:hover {
+    color: var(--color-acento);
+}
+
+.home-footer-creditos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-top: 85px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde);
+
+    color: var(--color-secundario);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
 /* MEDIAQUERY MOBILE */
 @media (max-width: 530px) {
 
@@ -808,6 +876,11 @@
     .home-faq,
     .home-contacto {
         min-width: 0;
+    }
+
+    .home-footer-contenido,
+    .home-footer-creditos {
+        flex-direction: column;
     }
 }
 
