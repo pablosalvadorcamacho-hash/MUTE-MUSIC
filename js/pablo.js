@@ -82,3 +82,80 @@ if (botonCarrito && ventanaCarrito && cerrarCarrito) {
     })
 
 }
+
+
+// FORMULARIO DE CONTACTO
+var formulario = document.querySelector(".home-formulario");
+var confirmacion = document.querySelector(".home-confirmacion");
+var aceptar = document.querySelector(".home-confirmacion-cerrar");
+
+if (formulario && confirmacion && aceptar) {
+
+    var nombre = document.querySelector("#home-nombre");
+    var email = document.querySelector("#home-email");
+    var mensaje = document.querySelector("#home-mensaje");
+    var aviso = document.querySelector(".home-formulario-aviso");
+
+    formulario.addEventListener("submit", function (evento) {
+
+        evento.preventDefault();
+
+        if (nombre.value.trim() === "") {
+            aviso.textContent = "Escribe tu nombre.";
+            nombre.focus();
+            return;
+        }
+
+        if (email.value.trim() === "" || !email.validity.valid) {
+            aviso.textContent = "Escribe un correo electrónico válido.";
+            email.focus();
+            return;
+        }
+
+        if (mensaje.value.trim() === "") {
+            aviso.textContent = "Escribe tu mensaje.";
+            mensaje.focus();
+            return;
+        }
+
+        // QUITAR EL AVISO ANTERIOR Y ABRIR LA CONFIRMACIÓN
+        aviso.textContent = "";
+        confirmacion.showModal();
+
+    })
+
+    // CERRAR AL PULSAR ACEPTAR
+    aceptar.addEventListener("click", function () {
+        confirmacion.close();
+    })
+
+}
+
+
+// REPETIR LA ANIMACIÓN AL ABRIR LOS FAQ
+var preguntas = document.querySelectorAll(".home-faq details");
+
+preguntas.forEach(function (pregunta) {
+
+    pregunta.addEventListener("toggle", function () {
+
+        if (pregunta.open) {
+
+            var respuesta = pregunta.querySelector("p");
+
+            respuesta.animate(
+                [
+                    { opacity: 0, transform: "translateY(-5px)" },
+                    { opacity: 1, transform: "translateY(0)" }
+                ],
+                {
+                    duration: 250,
+                    easing: "ease-out"
+                }
+            );
+
+        }
+
+    })
+
+})

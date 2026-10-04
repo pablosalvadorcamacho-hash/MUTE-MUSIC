@@ -76,6 +76,8 @@
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
+
+    transition: color 0.2s ease;
 }
 
 .home-nav a:hover {
@@ -96,6 +98,8 @@
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .home-header .btn-tickets:hover {
@@ -123,16 +127,18 @@
     border: none;
     background: transparent;
     color: var(--color-texto);
-
     cursor: pointer;
+
+    transition: color 0.2s ease;
 }
 
 .home-menu-btn span {
     display: block;
     width: 24px;
     height: 2px;
+
     background-color: currentColor;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
 .home-menu-btn:hover {
@@ -213,12 +219,16 @@
 .home-comprar {
     display: inline-block;
     padding: 16px 24px;
+
     background-color: var(--color-acento);
     color: var(--color-fondo);
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .home-comprar:hover {
@@ -290,12 +300,14 @@
     min-width: 220px;
     padding: 30px 20px;
     border: 1px solid var(--color-borde);
+
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: var(--fuente-titulos);
     text-align: left;
+
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .home-canal span {
@@ -340,7 +352,7 @@
     color: var(--color-texto);
     cursor: pointer;
 
-    transition: color;
+    transition: color 0.2s ease;
 }
 
 .home-carrito-btn:hover {
@@ -386,12 +398,20 @@
     display: block;
     margin-top: 20px;
     border: none;
+
     background: transparent;
     color: var(--color-texto);
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     text-decoration: underline;
+
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.home-carrito-cerrar:hover {
+    color: var(--color-acento);
 }
 
 
@@ -417,7 +437,7 @@
     font-weight: 700;
     text-decoration: none;
 
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .home-ayuda-btn:hover {
@@ -504,12 +524,15 @@
     display: inline-block;
     padding: 15px 20px;
     border: 1px solid var(--color-acento);
+
     color: var(--color-acento);
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
+
     text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .home-avance-enlace:hover {
@@ -519,6 +542,170 @@
 
 .home-avance-galeria {
     background-color: var(--color-superficie);
+}
+
+/* FAQ Y CONTACTO */
+.home-ayuda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    padding: 70px 5%;
+    border-top: 1px solid var(--color-borde);
+    scroll-margin-top: 130px;
+}
+
+.home-faq,
+.home-contacto {
+    flex: 1;
+    min-width: 280px;
+}
+
+.home-ayuda-etiqueta {
+    margin-bottom: 15px;
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+}
+
+.home-ayuda h2 {
+    margin-bottom: 25px;
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+
+/* PREGUNTAS */
+.home-faq details {
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.home-faq summary {
+    padding: 20px 0;
+
+    font-family: var(--fuente-titulos);
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.home-faq summary:hover,
+.home-faq details[open] summary {
+    color: var(--color-acento);
+}
+
+.home-faq details p {
+    padding-bottom: 20px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+
+/* FORMULARIO */
+.home-contacto-intro {
+    margin-bottom: 25px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.home-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-formulario label {
+    margin-bottom: 8px;
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+}
+
+.home-formulario input,
+.home-formulario textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 14px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+
+    font-family: var(--fuente-texto);
+    font-size: 16px;
+}
+
+.home-formulario textarea {
+    resize: vertical;
+}
+
+.home-formulario input:focus,
+.home-formulario textarea:focus {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+.home-enviar {
+    align-self: flex-start;
+    padding: 16px 24px;
+    border: none;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-enviar:hover {
+    background-color: var(--color-amarillo);
+}
+
+.home-formulario-aviso {
+    margin-top: 15px;
+    color: var(--color-secundario);
+    line-height: 1.5;
+}
+
+
+/* CONFIRMACIÓN DEL FORMULARIO */
+.home-confirmacion {
+    margin: auto;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.home-confirmacion h2 {
+    margin-bottom: 20px;
+    font-family: var(--fuente-titulos);
+    font-size: 30px;
+}
+
+.home-confirmacion p {
+    margin-bottom: 25px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.home-confirmacion::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.home-confirmacion[open] {
+    animation: home-carrito-entrada 0.25s ease-out;
+}
+
+.home-confirmacion[open]::backdrop {
+    animation: home-fondo-entrada 0.25s ease-out;
 }
 
 
@@ -610,6 +797,17 @@
 
     .home-header .home-tickets-desktop {
         display: none;
+    }
+
+    .home-ayuda {
+        flex-direction: column;
+        gap: 40px;
+        padding: 45px 5%;
+    }
+
+    .home-faq,
+    .home-contacto {
+        min-width: 0;
     }
 }
 
