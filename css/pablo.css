@@ -271,6 +271,37 @@
 }
 
 
+/* BOTÓN FLOTANTE DE AYUDA */
+.home-ayuda-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.home-ayuda-btn:hover {
+    background-color: var(--color-amarillo);
+    transform: translateY(-3px);
+}
+
+
 /* MEDIAQUERY MOBILE */
 @media (max-width: 530px) {
 
