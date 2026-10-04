@@ -36,14 +36,25 @@
 
 /* HEADER */
 .home-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 2vw;
+
     padding: 20px 5%;
+    background-color: var(--color-fondo);
 }
 
 
 /* LOGO */
+.home-header .logo {
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
 .home-header .logo img {
     display: block;
     width: 90px;
@@ -73,30 +84,73 @@
 
 
 /* BOTÓN DE ENTRADAS */
-.home-nav .btn-tickets {
+.home-header .btn-tickets {
     display: inline-block;
     padding: 12px 22px;
+
     background-color: var(--color-acento);
     color: var(--color-fondo);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
-.home-nav .btn-tickets:hover {
+.home-header .btn-tickets:hover {
     background-color: var(--color-amarillo);
     color: var(--color-fondo);
+}
+
+.home-tickets-mobile {
+    display: none;
 }
 
 
 /* BOTÓN DEL MENÚ: OCULTO EN ESCRITORIO */
 .home-menu-btn {
     display: none;
-    padding: 10px 16px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    flex-shrink: 0;
+
     border: none;
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
+    background: transparent;
+    color: var(--color-texto);
+
     cursor: pointer;
+}
+
+.home-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.home-menu-btn:hover {
+    color: var(--color-acento);
+}
+
+
+/* HAMBURGUESA CONVERTIDO EN X */
+.home-menu-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.home-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.home-menu-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 
@@ -133,7 +187,7 @@
 }
 
 .home-portada h1 {
-    font-size: 7vw;
+    font-size: calc(24px + 4vw);
     line-height: 1;
     margin-bottom: 25px;
 }
@@ -276,10 +330,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
     border: none;
     background: transparent;
     color: var(--color-texto);
     cursor: pointer;
+
     transition: color;
 }
 
@@ -287,6 +347,13 @@
     color: var(--color-acento);
 }
 
+.home-carrito-btn svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    overflow: visible;
+}
 
 /* VENTANA DEL CARRO */
 .home-carrito {
@@ -390,21 +457,87 @@
 }
 
 
+/* PREVIEW DE CARTEL Y GALERÍA */
+.home-avance {
+    display: flex;
+    align-items: center;
+    gap: 7%;
+    padding: 70px 5%;
+    border-top: 1px solid var(--color-borde);
+}
+
+.home-avance-numero {
+    font-family: var(--fuente-titulos);
+    font-size: 14vw;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-acento);
+}
+
+.home-avance-contenido {
+    flex: 1;
+    min-width: 0;
+}
+
+.home-avance-etiqueta {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    color: var(--color-acento);
+    margin-bottom: 15px;
+}
+
+.home-avance h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.home-avance-texto {
+    max-width: 550px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.home-avance-enlace {
+    display: inline-block;
+    padding: 15px 20px;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.home-avance-enlace:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.home-avance-galeria {
+    background-color: var(--color-superficie);
+}
+
+
 /* MEDIAQUERY MOBILE */
 @media (max-width: 530px) {
 
     .home-header {
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 12px;
     }
 
     .home-menu-btn {
-        display: block;
+        display: flex;
     }
 
     .home-nav {
         display: none;
         width: 100%;
+        order: 1;
     }
 
     .home-nav.active {
@@ -426,10 +559,6 @@
         flex-direction: column;
         align-items: flex-start;
         margin-bottom: 30px;
-    }
-
-    .home-portada h1 {
-        font-size: 10vw;
     }
 
     .home-ubicacion {
@@ -458,6 +587,29 @@
 
     .home-canal {
         min-width: 0;
+    }
+
+    .home-avance {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 45px 5%;
+    }
+
+    .home-avance-numero {
+        font-size: 70px;
+    }
+
+    .home-avance h2 {
+        font-size: 32px;
+    }
+
+    .home-tickets-mobile {
+        display: block;
+    }
+
+    .home-header .home-tickets-desktop {
+        display: none;
     }
 }
 

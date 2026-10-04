@@ -13,18 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
+
 <body class="home-body">
     <header class="home-header">
+
         <a href="index.html" class="logo">
             <img src="media/img/LOGO-MM.png" alt="MUTE MUSIC">
         </a>
 
-        <!-- BOTÓN DEL MENÚ MOBILE -->
-        <button class="home-menu-btn" type="button">Menú</button>
-
-        <nav class="home-nav">
+        <nav class="home-nav" id="home-navegacion">
             <ul class="menu">
-                
+
                 <li>
                     <a href="cartel.html">Cartel</a>
                 </li>
@@ -33,31 +32,48 @@
                     <a href="gallery.html">Galería</a>
                 </li>
 
-                <li>
-                    <button class="home-carrito-btn" type="button"
-                        aria-label="Abrir carrito">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            aria-hidden="true">
-
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        
-                    </button>
+                <li class="home-tickets-mobile">
+                    <a href="tickets.html" class="btn-tickets">
+                        Comprar tickets
+                    </a>
                 </li>
 
-                <li>
-                    <a href="tickets.html" class="btn-tickets">Comprar tickets</a>
-                </li>
             </ul>
         </nav>
 
+        <!-- CARRITO -->
+        <button class="home-carrito-btn" type="button"
+            aria-label="Abrir carrito">
 
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+
+        </button>
+
+        <!-- ENTRADAS EN ESCRITORIO -->
+        <a href="tickets.html" class="btn-tickets home-tickets-desktop">
+            Comprar tickets
+        </a>
+
+        <!-- MENÚ MOBILE -->
+        <button class="home-menu-btn" type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="home-navegacion">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
 
     </header>
 
@@ -168,12 +184,61 @@
 
         </section>
 
+
+        <!-- PREVISUALIZACIÓN DEL CARTEL -->
+        <section class="home-avance">
+
+            <span class="home-avance-numero" aria-hidden="true">01</span>
+
+            <div class="home-avance-contenido">
+                <p class="home-avance-etiqueta">EL CARTEL</p>
+
+                <h2>TRES CANALES.<br>MIL FORMAS DE BAILAR.</h2>
+
+                <p class="home-avance-texto">
+                    Descubre quién pone ritmo a cada frecuencia.
+                    Consulta los artistas, los escenarios y los horarios
+                    para preparar tu noche.
+                </p>
+
+                <a href="cartel.html" class="home-avance-enlace">
+                    VER    CARTEL COMPLETO ↗
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- PREVISUALIZACIÓN DE LA GALERÍA -->
+        <section class="home-avance home-avance-galeria">
+
+            <span class="home-avance-numero" aria-hidden="true">02</span>
+
+
+            <div class="home-avance-contenido">
+                <p class="home-avance-etiqueta">GALERÍA Y RECINTO</p>
+
+                <h2>ASÍ SE VE<br>LO QUE SE SIENTE.</h2>
+
+                <p class="home-avance-texto">
+                    Una mirada al ambiente de MUTE MUSIC.
+                    Explora la galería, descubre el recinto
+                    y encuentra cómo llegar a la Caja Mágica.
+                </p>
+
+                <a href="gallery.html" class="home-avance-enlace">
+                    EXPLORAR GALERÍA Y MAPAS ↗
+                </a>
+            </div>
+
+        </section>
+
     </main>
 
     <!-- PANEL DEL CARRITO DE COMPRA-->
-    <dialog class="home-carrito">
+    <dialog class="home-carrito" aria-labelledby="home-carrito-titulo">
 
-        <h2>TU CARRITO</h2>
+        <h2 id="home-carrito-titulo">TU CARRITO</h2>
 
         <p>Todavía no has añadido entradas.</p>
 
