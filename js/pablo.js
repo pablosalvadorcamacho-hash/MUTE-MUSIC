@@ -11,3 +11,26 @@ if (botonMenu && navegacion) {
 
     })
 }
+
+// CANALES DEL FESTIVAL
+var canales = document.querySelectorAll(".home-canal");
+var descripcionCanal = document.querySelector(".home-canal-descripcion");
+
+if (descripcionCanal) {
+    canales.forEach(function (canal) {
+
+        canal.addEventListener("click", function () {
+
+            canales.forEach(function (otroCanal) {
+                otroCanal.classList.remove("active");
+                otroCanal.setAttribute("aria-pressed", "false");
+            })
+
+            canal.classList.add("active");
+            canal.setAttribute("aria-pressed", "true");
+
+            descripcionCanal.textContent = canal.getAttribute("data-texto");
+        })
+
+    })
+}
