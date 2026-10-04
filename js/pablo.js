@@ -12,6 +12,7 @@ if (botonMenu && navegacion) {
     })
 }
 
+
 // CANALES DEL FESTIVAL
 var canales = document.querySelectorAll(".home-canal");
 var descripcionCanal = document.querySelector(".home-canal-descripcion");
@@ -33,4 +34,22 @@ if (descripcionCanal) {
         })
 
     })
+}
+
+
+// ABRIR Y CERRAR EL CARRO
+var botonCarrito = document.querySelector(".home-carrito-btn");
+var ventanaCarrito = document.querySelector(".home-carrito");
+var cerrarCarrito = document.querySelector(".home-carrito-cerrar");
+
+if (botonCarrito && ventanaCarrito && cerrarCarrito) {
+
+    botonCarrito.addEventListener("click", function () {
+        ventanaCarrito.showModal();
+    })
+
+    cerrarCarrito.addEventListener("click", function () {
+        ventanaCarrito.close();
+    })
+
 }

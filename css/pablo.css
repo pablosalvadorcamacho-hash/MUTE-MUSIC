@@ -271,6 +271,63 @@
 }
 
 
+/* BOTÓN DEL CARRO */
+.home-carrito-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: color;
+}
+
+.home-carrito-btn:hover {
+    color: var(--color-acento);
+}
+
+
+/* VENTANA DEL CARRO */
+.home-carrito {
+    margin: auto;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.home-carrito::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.home-carrito h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.home-carrito p {
+    color: var(--color-secundario);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.home-carrito-cerrar {
+    display: block;
+    margin-top: 20px;
+    border: none;
+    background: transparent;
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 /* BOTÓN FLOTANTE DE AYUDA */
 .home-ayuda-btn {
     position: fixed;
@@ -299,6 +356,37 @@
 .home-ayuda-btn:hover {
     background-color: var(--color-amarillo);
     transform: translateY(-3px);
+}
+
+/* ANIMACIÓN FLOTANTE POP-UP CARRO */
+@keyframes home-carrito-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes home-fondo-entrada {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.home-carrito[open] {
+    animation: home-carrito-entrada 0.25s ease-out;
+}
+
+.home-carrito[open]::backdrop {
+    animation: home-fondo-entrada 0.25s ease-out;
 }
 
 
