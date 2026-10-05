@@ -102,6 +102,7 @@ if (formulario && confirmacion && aceptar) {
 
         // QUITAR EL AVISO ANTERIOR Y ABRIR LA CONFIRMACIÓN
         aviso.textContent = "";
+        formulario.reset();
         confirmacion.showModal();
 
     })
@@ -194,14 +195,14 @@ var tiposEntrada = [
         abono: 35,
         dia: 15
     }
-];
+]
 
 var fechasEntrada = {
     abono: "Abono · 18, 19 y 20 de junio",
     viernes: "Viernes · 18 de junio",
     sabado: "Sábado · 19 de junio",
     domingo: "Domingo · 20 de junio"
-};
+}
 
 
 // RECUPERAR EL CARRITO GUARDADO
@@ -225,7 +226,7 @@ try {
                 Number.isInteger(entrada.cantidad) &&
                 entrada.cantidad > 0;
 
-        });
+        })
 
     }
 
@@ -297,7 +298,7 @@ function calcularCarrito() {
 
     carrito.forEach(function (entrada) {
         total = total + entrada.cantidad * precioEntrada(entrada);
-    });
+    })
 
     return total;
 
@@ -349,7 +350,7 @@ function mostrarCarrito() {
                 "aria-label",
                 "Eliminar " + tiposEntrada[entrada.tipo].nombre +
                 " · " + fechasEntrada[entrada.fecha]
-            );
+            )
 
             eliminar.addEventListener("click", function () {
 
@@ -357,7 +358,7 @@ function mostrarCarrito() {
                     function (elemento, indice) {
                         return indice !== posicion;
                     }
-                );
+                )
 
                 if (guardarCarrito(nuevoCarrito)) {
                     mostrarCarrito();
@@ -372,7 +373,7 @@ function mostrarCarrito() {
             linea.appendChild(eliminar);
             listaCarrito.appendChild(linea);
 
-        });
+        })
 
         vacioCarrito.hidden = carrito.length > 0;
         pagarCarrito.hidden = carrito.length === 0;
@@ -394,11 +395,11 @@ if (botonCarrito && ventanaCarrito && cerrarCarrito) {
     botonCarrito.addEventListener("click", function () {
         mostrarCarrito();
         ventanaCarrito.showModal();
-    });
+    })
 
     cerrarCarrito.addEventListener("click", function () {
         ventanaCarrito.close();
-    });
+    })
 
 }
 
@@ -454,7 +455,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
                     : "Acceso el " + fechasEntrada[selectorFecha.value];
             }
 
-        });
+        })
 
         avisoTickets.textContent = "";
         actualizarSeleccion();
@@ -465,7 +466,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
 
     cantidades.forEach(function (cantidad) {
         cantidad.addEventListener("change", actualizarSeleccion);
-    });
+    })
 
 
     // AÑADIR LA SELECCIÓN SIN BORRAR LO ANTERIOR
@@ -477,9 +478,9 @@ if (selectorFecha && totalTickets && anadirTickets) {
                 tipo: entrada.tipo,
                 fecha: entrada.fecha,
                 cantidad: entrada.cantidad
-            };
+            }
 
-        });
+        })
 
         var unidadesAnadidas = 0;
 
@@ -495,7 +496,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
                     return entrada.tipo === indice &&
                         entrada.fecha === selectorFecha.value;
 
-                });
+                })
 
                 if (existente) {
 
@@ -508,7 +509,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
                         tipo: indice,
                         fecha: selectorFecha.value,
                         cantidad: unidades
-                    });
+                    })
 
                 }
 
@@ -516,7 +517,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
 
             }
 
-        });
+        })
 
         if (unidadesAnadidas === 0) {
             return;
@@ -534,7 +535,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
 
         cantidades.forEach(function (cantidad) {
             cantidad.value = "0";
-        });
+        })
 
         actualizarSeleccion();
         mostrarCarrito();
@@ -543,7 +544,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
             "Entradas añadidas al carrito. " +
             "Puedes elegir otra fecha o finalizar la compra.";
 
-    });
+    })
 
     actualizarFecha();
 
@@ -568,7 +569,7 @@ if (comprarTickets && ventanaCompra && confirmarCompra && cerrarCompra) {
             linea.textContent = textoEntrada(entrada);
             listaCompra.appendChild(linea);
 
-        });
+        })
 
         totalCompra.textContent = calcularCarrito() + " €";
 
@@ -580,7 +581,7 @@ if (comprarTickets && ventanaCompra && confirmarCompra && cerrarCompra) {
 
         ventanaCompra.showModal();
 
-    });
+    })
 
 
     confirmarCompra.addEventListener("click", function () {
@@ -610,12 +611,12 @@ if (comprarTickets && ventanaCompra && confirmarCompra && cerrarCompra) {
         cerrarCompra.textContent = "ACEPTAR";
         cerrarCompra.focus();
 
-    });
+    })
 
 
     cerrarCompra.addEventListener("click", function () {
         ventanaCompra.close();
-    });
+    })
 
 }
 
@@ -641,15 +642,15 @@ if (pagarCarrito && ventanaCarrito) {
                 duration: 200,
                 easing: "ease-out"
             }
-        );
+        )
 
         salida.onfinish = function () {
 
             ventanaCarrito.close();
             window.location.href = destino;
 
-        };
+        }
 
-    });
+    })
 
 }
