@@ -97,6 +97,20 @@
             </p>
         </section>
 
+        <!-- ELEGIR ABONO O DÍA -->
+        <div class="tickets-fecha-selector">
+
+            <label for="tickets-fecha">¿CUÁNDO VIENES?</label>
+
+            <select id="tickets-fecha">
+                <option value="abono">Abono completo · 18, 19 y 20 de junio</option>
+                <option value="viernes">Viernes · 18 de junio</option>
+                <option value="sabado">Sábado · 19 de junio</option>
+                <option value="domingo">Domingo · 20 de junio</option>
+            </select>
+
+        </div>
+
         <section class="tickets-seleccion" aria-labelledby="tickets-titulo">
 
             <h2 id="tickets-titulo">ABONOS PARA LOS TRES DÍAS</h2>
@@ -109,7 +123,18 @@
                     <h3>GENERAL</h3>
                     <p class="tickets-precio">59 €</p>
                     <p class="tickets-descripcion">
-                        Acceso al festival los días 18, 19 y 20 de junio.
+                        Entrada general para disfrutar de MUTE MUSIC.
+                    </p>
+
+                    <ul class="tickets-incluye">
+                        <li>Acceso los tres días del festival</li>
+                        <li>Acceso a los tres escenarios</li>
+                        <li>Préstamo de cascos LED incluido en el precio</li>
+                        <li>Cambio de canal ilimitado</li>
+                    </ul>
+
+                    <p class="tickets-nota">
+                        Usa los cascos durante el festival y devuélvelos al salir.
                     </p>
 
                     <label for="tickets-general">Cantidad de abonos generales</label>
@@ -123,9 +148,9 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="4">7</option>
-                        <option value="5">8</option>
-                        <option value="6">9</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                     </select>
 
                 </article>
@@ -139,6 +164,17 @@
                         Abono con tarifa reducida para menores de edad. <br> A partir de 16 años.
                     </p>
 
+                    <ul class="tickets-incluye">
+                        <li>Acceso los tres días del festival</li>
+                        <li>Acceso a los tres escenarios</li>
+                        <li>Préstamo de cascos LED incluido en el precio</li>
+                        <li>Cambio de canal ilimitado</li>
+                    </ul>
+
+                    <p class="tickets-nota">
+                        Usa los cascos durante el festival y devuélvelos al salir.
+                    </p>
+
                     <label for="tickets-menores">Cantidad de abonos para menores</label>
 
                     <select id="tickets-menores" class="tickets-cantidad"
@@ -150,9 +186,9 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="4">7</option>
-                        <option value="5">8</option>
-                        <option value="6">9</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                     </select>
 
                 </article>
@@ -164,6 +200,18 @@
                     <p class="tickets-precio">35 €</p>
                     <p class="tickets-descripcion">
                         Abono con tarifa reducida para personas con discapacidad.
+                    </p>
+
+                    <ul class="tickets-incluye">
+                        <li>Acceso los tres días del festival</li>
+                        <li>Acceso a los tres escenarios</li>
+                        <li>Préstamo de cascos LED incluido en el precio</li>
+                        <li>Cambio de canal ilimitado</li>
+                        <li>Acceso adaptado y zona reservada</li>
+                    </ul>
+
+                    <p class="tickets-nota">
+                        Usa los cascos durante el festival y devuélvelos al salir.
                     </p>
 
                     <label for="tickets-discapacidad">
@@ -179,16 +227,16 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="4">7</option>
-                        <option value="5">8</option>
-                        <option value="6">9</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                     </select>
 
                 </article>
 
             </div>
 
-            <!-- RESUMEN -->
+            <!-- RESUMEN DE LA SELECCIÓN -->
             <div class="tickets-resumen">
 
                 <div aria-live="polite">
@@ -196,13 +244,44 @@
                     <strong id="tickets-total">0 €</strong>
                 </div>
 
-                <a href="index.html#home-ayuda" class="tickets-ayuda">
-                    ¿Tienes alguna duda?
-                </a>
+                <div class="tickets-acciones">
+
+                    <button class="home-enviar" id="tickets-anadir"
+                        type="button" disabled>
+                        AÑADIR AL CARRITO ↗
+                    </button>
+
+                    <a href="#index.html#home-ayuda" class="tickets-ayuda">
+                        ¿Tienes dudas?
+                    </a>
+
+                </div>
 
             </div>
 
-        </section>
+            <p class="tickets-aviso" id="tickets-aviso" aria-live="polite"></p>
+
+            <!-- FINALIZAR LA COMPRA DEL CARRITO -->
+            <section class="tickets-pago" id="tickets-pago">
+
+                <h2>FINALIZA TU COMPRA</h2>
+
+                <p>
+                    Añade todas las entradas que quieras antes de continuar.
+                    Puedes revisarlas o eliminarlas desde el carrito.
+                </p>
+
+                <p class="tickets-pago-total" aria-live="polite">
+                    Total del carrito:
+                    <strong id="tickets-carrito-total">0 €</strong>
+                </p>
+
+                <button class="home-enviar" id="tickets-comprar"
+                    type="button" disabled>
+                    CONTINUAR CON LA COMPRA ↗
+                </button>
+
+            </section>
 
     </main>
 
@@ -230,7 +309,7 @@
                     <li><a href="cartel.html">Cartel</a></li>
                     <li><a href="gallery.html">Galería y mapas</a></li>
                     <li><a href="tickets.html">Comprar tickets</a></li>
-                    <li><a href="#home-ayuda">FAQ y contacto</a></li>
+                    <li><a href="#index.html#home-ayuda">FAQ y contacto</a></li>
                 </ul>
             </nav>
 
@@ -282,10 +361,23 @@
 
         <h2 id="home-carrito-titulo">TU CARRITO</h2>
 
-        <p>Todavía no has añadido entradas.</p>
+        <p id="carrito-vacio">Todavía no has añadido entradas.</p>
 
-        <a href="tickets.html" class="home-comprar">
-            VER ENTRADAS
+        <ul class="carrito-lista" id="carrito-lista"></ul>
+
+        <p aria-live="polite">
+            Total: <strong id="carrito-total">0 €</strong>
+        </p>
+
+        <p id="carrito-aviso" aria-live="polite"></p>
+
+        <a href="tickets.html#tickets-pago" class="home-comprar"
+            id="carrito-pagar" hidden>
+            FINALIZAR COMPRA ↗
+        </a>
+
+        <a href="tickets.html" class="carrito-seguir">
+            Elegir entradas
         </a>
 
         <button class="home-carrito-cerrar" type="button">
@@ -297,6 +389,41 @@
 
     <!-- ACCESO A FAQ Y CONTACTO -->
     <a href="index.html#home-ayuda" class="home-ayuda-btn" aria-label="Ir a preguntas frecuentes y contacto">?</a>
+
+
+    <!-- REVISIÓN DE LA COMPRA -->
+    <dialog class="home-confirmacion" id="tickets-compra"
+        aria-labelledby="tickets-compra-titulo">
+
+        <h2 id="tickets-compra-titulo">REVISA TUS ENTRADAS</h2>
+
+        <ul class="tickets-compra-lista" id="tickets-compra-lista"></ul>
+
+        <p>
+            Total:
+            <strong id="tickets-compra-total">0 €</strong>
+        </p>
+
+        <p id="tickets-compra-aviso" aria-live="polite">
+            Revisa tus entradas antes de confirmar la compra.
+        </p>
+
+        <div class="tickets-compra-botones">
+
+            <button class="home-enviar" id="tickets-confirmar"
+                type="button">
+                CONFIRMAR COMPRA
+            </button>
+
+            <button class="home-enviar" id="tickets-compra-cerrar"
+                type="button">
+                VOLVER
+            </button>
+
+        </div>
+
+    </dialog>
+
 
     <script src="js/pablo.js"></script>
 </body>

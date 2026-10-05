@@ -66,24 +66,6 @@ if (descripcionCanal) {
 }
 
 
-// ABRIR Y CERRAR EL CARRITO
-var botonCarrito = document.querySelector(".home-carrito-btn");
-var ventanaCarrito = document.querySelector(".home-carrito");
-var cerrarCarrito = document.querySelector(".home-carrito-cerrar");
-
-if (botonCarrito && ventanaCarrito && cerrarCarrito) {
-
-    botonCarrito.addEventListener("click", function () {
-        ventanaCarrito.showModal();
-    })
-
-    cerrarCarrito.addEventListener("click", function () {
-        ventanaCarrito.close();
-    })
-
-}
-
-
 // FORMULARIO DE CONTACTO
 var formulario = document.querySelector(".home-formulario");
 var confirmacion = document.querySelector(".home-confirmacion");
@@ -192,35 +174,451 @@ preguntas.forEach(function (pregunta) {
 })
 
 
-// CALCULAR EL TOTAL DE LOS ABONOS
+// PRECIOS Y FECHAS
+var tiposEntrada = [
+    {
+        id: "tickets-general",
+        nombre: "General",
+        abono: 59,
+        dia: 25
+    },
+    {
+        id: "tickets-menores",
+        nombre: "Menores",
+        abono: 35,
+        dia: 15
+    },
+    {
+        id: "tickets-discapacidad",
+        nombre: "Personas con discapacidad",
+        abono: 35,
+        dia: 15
+    }
+];
+
+var fechasEntrada = {
+    abono: "Abono · 18, 19 y 20 de junio",
+    viernes: "Viernes · 18 de junio",
+    sabado: "Sábado · 19 de junio",
+    domingo: "Domingo · 20 de junio"
+};
+
+
+// RECUPERAR EL CARRITO GUARDADO
+var carrito = [];
+
+try {
+
+    var guardado = JSON.parse(localStorage.getItem("mute-carrito"));
+
+    if (Array.isArray(guardado)) {
+
+        carrito = guardado.filter(function (entrada) {
+
+            return entrada &&
+                Number.isInteger(entrada.tipo) &&
+                entrada.tipo >= 0 &&
+                entrada.tipo < tiposEntrada.length &&
+                Object.prototype.hasOwnProperty.call(
+                    fechasEntrada, entrada.fecha
+                ) &&
+                Number.isInteger(entrada.cantidad) &&
+                entrada.cantidad > 0;
+
+        });
+
+    }
+
+} catch (error) {
+    carrito = [];
+}
+
+
+// ELEMENTOS DEL CARRITO
+var botonCarrito = document.querySelector(".home-carrito-btn");
+var ventanaCarrito = document.querySelector(".home-carrito");
+var cerrarCarrito = document.querySelector(".home-carrito-cerrar");
+
+var listaCarrito = document.querySelector("#carrito-lista");
+var vacioCarrito = document.querySelector("#carrito-vacio");
+var totalCarrito = document.querySelector("#carrito-total");
+var pagarCarrito = document.querySelector("#carrito-pagar");
+var avisoCarrito = document.querySelector("#carrito-aviso");
+
+
+// ELEMENTOS DE TICKETS
+var selectorFecha = document.querySelector("#tickets-fecha");
 var cantidades = document.querySelectorAll(".tickets-cantidad");
 var totalTickets = document.querySelector("#tickets-total");
+var anadirTickets = document.querySelector("#tickets-anadir");
+var avisoTickets = document.querySelector("#tickets-aviso");
 
-if (totalTickets) {
+var comprarTickets = document.querySelector("#tickets-comprar");
+var totalPago = document.querySelector("#tickets-carrito-total");
 
-    function actualizarTotal() {
+var ventanaCompra = document.querySelector("#tickets-compra");
+var tituloCompra = document.querySelector("#tickets-compra-titulo");
+var listaCompra = document.querySelector("#tickets-compra-lista");
+var totalCompra = document.querySelector("#tickets-compra-total");
+var avisoCompra = document.querySelector("#tickets-compra-aviso");
+var confirmarCompra = document.querySelector("#tickets-confirmar");
+var cerrarCompra = document.querySelector("#tickets-compra-cerrar");
+
+
+// OBTENER EL PRECIO DE UNA ENTRADA
+function precioEntrada(entrada) {
+
+    var tipo = tiposEntrada[entrada.tipo];
+
+    if (entrada.fecha === "abono") {
+        return tipo.abono;
+    }
+
+    return tipo.dia;
+
+}
+
+
+// TEXTO DE UNA LÍNEA DEL CARRITO
+function textoEntrada(entrada) {
+
+    return entrada.cantidad + " × " +
+        tiposEntrada[entrada.tipo].nombre + " · " +
+        fechasEntrada[entrada.fecha] + " — " +
+        entrada.cantidad * precioEntrada(entrada) + " €";
+
+}
+
+
+// SUMAR TODO EL CARRITO
+function calcularCarrito() {
+
+    var total = 0;
+
+    carrito.forEach(function (entrada) {
+        total = total + entrada.cantidad * precioEntrada(entrada);
+    });
+
+    return total;
+
+}
+
+
+// GUARDAR ANTES DE CAMBIAR EL CARRITO
+function guardarCarrito(nuevoCarrito) {
+
+    try {
+
+        localStorage.setItem(
+            "mute-carrito",
+            JSON.stringify(nuevoCarrito)
+        );
+
+        carrito = nuevoCarrito;
+        return true;
+
+    } catch (error) {
+        return false;
+    }
+
+}
+
+
+// ACTUALIZAR EL CARRITO Y EL TOTAL DE COMPRA
+function mostrarCarrito() {
+
+    var total = calcularCarrito();
+
+    if (listaCarrito) {
+
+        listaCarrito.textContent = "";
+        avisoCarrito.textContent = "";
+
+        carrito.forEach(function (entrada, posicion) {
+
+            var linea = document.createElement("li");
+            var texto = document.createElement("span");
+            var eliminar = document.createElement("button");
+
+            texto.textContent = textoEntrada(entrada);
+
+            eliminar.type = "button";
+            eliminar.className = "carrito-eliminar";
+            eliminar.textContent = "Eliminar";
+            eliminar.setAttribute(
+                "aria-label",
+                "Eliminar " + tiposEntrada[entrada.tipo].nombre +
+                " · " + fechasEntrada[entrada.fecha]
+            );
+
+            eliminar.addEventListener("click", function () {
+
+                var nuevoCarrito = carrito.filter(
+                    function (elemento, indice) {
+                        return indice !== posicion;
+                    }
+                );
+
+                if (guardarCarrito(nuevoCarrito)) {
+                    mostrarCarrito();
+                } else {
+                    avisoCarrito.textContent =
+                        "No se ha podido actualizar el carrito.";
+                }
+
+            });
+
+            linea.appendChild(texto);
+            linea.appendChild(eliminar);
+            listaCarrito.appendChild(linea);
+
+        });
+
+        vacioCarrito.hidden = carrito.length > 0;
+        pagarCarrito.hidden = carrito.length === 0;
+        totalCarrito.textContent = total + " €";
+
+    }
+
+    if (totalPago && comprarTickets) {
+        totalPago.textContent = total + " €";
+        comprarTickets.disabled = carrito.length === 0;
+    }
+
+}
+
+
+// ABRIR Y CERRAR EL CARRITO
+if (botonCarrito && ventanaCarrito && cerrarCarrito) {
+
+    botonCarrito.addEventListener("click", function () {
+        mostrarCarrito();
+        ventanaCarrito.showModal();
+    });
+
+    cerrarCarrito.addEventListener("click", function () {
+        ventanaCarrito.close();
+    });
+
+}
+
+
+// SELECCIÓN DE ENTRADAS EN TICKETS
+if (selectorFecha && totalTickets && anadirTickets) {
+
+    function actualizarSeleccion() {
 
         var total = 0;
 
         cantidades.forEach(function (cantidad) {
 
-            var unidades = Number(cantidad.value);
-            var precio = Number(cantidad.getAttribute("data-precio"));
+            total = total +
+                Number(cantidad.value) *
+                Number(cantidad.getAttribute("data-precio"));
 
-            total = total + unidades * precio;
-
-        })
+        });
 
         totalTickets.textContent = total + " €";
+        anadirTickets.disabled = total === 0;
 
     }
 
+
+    // CAMBIAR PRECIOS Y TEXTOS SEGÚN LA FECHA
+    function actualizarFecha() {
+
+        var esAbono = selectorFecha.value === "abono";
+
+        var titulo = document.querySelector("#tickets-titulo");
+
+        titulo.textContent = esAbono
+            ? "ABONOS PARA LOS TRES DÍAS"
+            : "ENTRADAS · " + fechasEntrada[selectorFecha.value];
+
+        tiposEntrada.forEach(function (tipo) {
+
+            var selector = document.getElementById(tipo.id);
+            var tarjeta = selector.closest(".tickets-tarjeta");
+            var precio = esAbono ? tipo.abono : tipo.dia;
+
+            selector.setAttribute("data-precio", precio);
+
+            tarjeta.querySelector(".tickets-precio").textContent =
+                precio + " €";
+
+            var incluye = tarjeta.querySelector(".tickets-incluye li");
+
+            if (incluye) {
+                incluye.textContent = esAbono
+                    ? "Acceso los tres días del festival"
+                    : "Acceso el " + fechasEntrada[selectorFecha.value];
+            }
+
+        });
+
+        avisoTickets.textContent = "";
+        actualizarSeleccion();
+
+    }
+
+    selectorFecha.addEventListener("change", actualizarFecha);
+
     cantidades.forEach(function (cantidad) {
+        cantidad.addEventListener("change", actualizarSeleccion);
+    });
 
-        cantidad.addEventListener("change", actualizarTotal);
 
-    })
+    // AÑADIR LA SELECCIÓN SIN BORRAR LO ANTERIOR
+    anadirTickets.addEventListener("click", function () {
 
-    actualizarTotal();
+        var nuevoCarrito = carrito.map(function (entrada) {
+
+            return {
+                tipo: entrada.tipo,
+                fecha: entrada.fecha,
+                cantidad: entrada.cantidad
+            };
+
+        });
+
+        var unidadesAnadidas = 0;
+
+        tiposEntrada.forEach(function (tipo, indice) {
+
+            var selector = document.getElementById(tipo.id);
+            var unidades = Number(selector.value);
+
+            if (unidades > 0) {
+
+                var existente = nuevoCarrito.find(function (entrada) {
+
+                    return entrada.tipo === indice &&
+                        entrada.fecha === selectorFecha.value;
+
+                });
+
+                if (existente) {
+
+                    existente.cantidad =
+                        existente.cantidad + unidades;
+
+                } else {
+
+                    nuevoCarrito.push({
+                        tipo: indice,
+                        fecha: selectorFecha.value,
+                        cantidad: unidades
+                    });
+
+                }
+
+                unidadesAnadidas = unidadesAnadidas + unidades;
+
+            }
+
+        });
+
+        if (unidadesAnadidas === 0) {
+            return;
+        }
+
+        if (!guardarCarrito(nuevoCarrito)) {
+
+            avisoTickets.textContent =
+                "No se ha podido guardar el carrito. " +
+                "Comprueba que el navegador permite almacenar datos.";
+
+            return;
+
+        }
+
+        cantidades.forEach(function (cantidad) {
+            cantidad.value = "0";
+        });
+
+        actualizarSeleccion();
+        mostrarCarrito();
+
+        avisoTickets.textContent =
+            "Entradas añadidas al carrito. " +
+            "Puedes elegir otra fecha o finalizar la compra.";
+
+    });
+
+    actualizarFecha();
 
 }
+
+
+// REVISAR Y CONFIRMAR LA COMPRA DEL CARRITO
+if (comprarTickets && ventanaCompra && confirmarCompra && cerrarCompra) {
+
+    comprarTickets.addEventListener("click", function () {
+
+        if (carrito.length === 0) {
+            return;
+        }
+
+        tituloCompra.textContent = "REVISA TUS ENTRADAS";
+        listaCompra.textContent = "";
+
+        carrito.forEach(function (entrada) {
+
+            var linea = document.createElement("li");
+            linea.textContent = textoEntrada(entrada);
+            listaCompra.appendChild(linea);
+
+        });
+
+        totalCompra.textContent = calcularCarrito() + " €";
+
+        avisoCompra.textContent =
+            "Revisa tus entradas antes de confirmar la compra.";
+
+        confirmarCompra.hidden = false;
+        cerrarCompra.textContent = "VOLVER";
+
+        ventanaCompra.showModal();
+
+    });
+
+
+    confirmarCompra.addEventListener("click", function () {
+
+        if (carrito.length === 0) {
+            return;
+        }
+
+        if (!guardarCarrito([])) {
+
+            avisoCompra.textContent =
+                "No se ha podido completar la operación. Inténtalo de nuevo.";
+
+            return;
+
+        }
+
+        mostrarCarrito();
+
+        tituloCompra.textContent = "¡COMPRA CONFIRMADA!";
+
+        avisoCompra.textContent =
+            "¡Compra realizada con éxito! " +
+            "Gracias por formar parte de MUTE MUSIC.";
+
+        confirmarCompra.hidden = true;
+        cerrarCompra.textContent = "ACEPTAR";
+        cerrarCompra.focus();
+
+    });
+
+
+    cerrarCompra.addEventListener("click", function () {
+        ventanaCompra.close();
+    });
+
+}
+
+
+// MOSTRAR LOS DATOS GUARDADOS AL CARGAR LA PÁGINA
+mostrarCarrito();
