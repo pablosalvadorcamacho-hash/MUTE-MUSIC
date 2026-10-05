@@ -223,9 +223,9 @@ function precioEntrada(entrada) {
 // TEXTO DE UNA LÍNEA DEL CARRITO
 function textoEntrada(entrada) {
 
-    return entrada.cantidad + " × " +
+    return entrada.cantidad + " x " +
         tiposEntrada[entrada.tipo].nombre + " · " +
-        fechasEntrada[entrada.fecha] + " — " +
+        fechasEntrada[entrada.fecha] + " - " +
         entrada.cantidad * precioEntrada(entrada) + " €";
 
 }
