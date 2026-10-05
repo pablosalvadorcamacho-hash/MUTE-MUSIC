@@ -604,6 +604,24 @@
 }
 
 
+/* AL ABRIR Y CERRAR LAS PREGUNTAS */
+.home-faq details[open] p {
+    animation: home-faq-entrada 0.25s ease;
+}
+
+@keyframes home-faq-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* FORMULARIO */
 .home-contacto-intro {
     margin-bottom: 25px;

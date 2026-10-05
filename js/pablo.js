@@ -115,66 +115,6 @@ if (formulario && confirmacion && aceptar) {
 }
 
 
-// ABRIR Y CERRAR LAS FAQ FLUIDO
-var preguntas = document.querySelectorAll(".home-faq details");
-
-preguntas.forEach(function (pregunta) {
-
-    var titulo = pregunta.querySelector("summary");
-    var animando = false;
-
-    titulo.addEventListener("click", function (evento) {
-
-        // EVITAR QUE SE ABRA O CIERRE BRUSCO
-        evento.preventDefault();
-
-        if (animando) {
-            return;
-        }
-
-        animando = true;
-
-        var estabaAbierta = pregunta.open;
-        var alturaInicial = pregunta.getBoundingClientRect().height;
-        var alturaFinal;
-
-        if (estabaAbierta) {
-
-            // ALTURA DEL TÍTULO MÁS BORDE
-            alturaFinal = titulo.getBoundingClientRect().height + 1;
-
-        } else {
-
-            pregunta.open = true;
-            alturaFinal = pregunta.getBoundingClientRect().height;
-
-        }
-
-        var animacion = pregunta.animate(
-            [
-                { height: alturaInicial + "px" },
-                { height: alturaFinal + "px" }
-            ],
-            {
-                duration: 250,
-                easing: "ease-in-out",
-                fill: "both"
-            }
-        )
-
-        animacion.onfinish = function () {
-
-            pregunta.open = !estabaAbierta;
-            animacion.cancel();
-            animando = false;
-
-        }
-
-    })
-
-})
-
-
 // PRECIOS Y FECHAS
 var tiposEntrada = [
     {
@@ -220,9 +160,9 @@ try {
                 Number.isInteger(entrada.tipo) &&
                 entrada.tipo >= 0 &&
                 entrada.tipo < tiposEntrada.length &&
-                Object.prototype.hasOwnProperty.call(
-                    fechasEntrada, entrada.fecha
-                ) &&
+                
+                fechasEntrada[entrada.fecha] &&
+                
                 Number.isInteger(entrada.cantidad) &&
                 entrada.cantidad > 0;
 
