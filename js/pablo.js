@@ -619,6 +619,37 @@ if (comprarTickets && ventanaCompra && confirmarCompra && cerrarCompra) {
 
 }
 
-
 // MOSTRAR LOS DATOS GUARDADOS AL CARGAR LA PÁGINA
 mostrarCarrito();
+
+
+// CERRAR EL CARRITO Y CONTINUAR A LA COMPRA
+if (pagarCarrito && ventanaCarrito) {
+
+    pagarCarrito.addEventListener("click", function (evento) {
+
+        evento.preventDefault();
+
+        var destino = pagarCarrito.href;
+
+        var salida = ventanaCarrito.animate(
+            [
+                { opacity: 1 },
+                { opacity: 0 }
+            ],
+            {
+                duration: 200,
+                easing: "ease-out"
+            }
+        );
+
+        salida.onfinish = function () {
+
+            ventanaCarrito.close();
+            window.location.href = destino;
+
+        };
+
+    });
+
+}
