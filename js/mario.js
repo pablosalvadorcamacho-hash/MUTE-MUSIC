@@ -224,3 +224,61 @@ if (totalTickets) {
     actualizarTotal();
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".cartel-tab-btn");
+    const gridDias = document.querySelectorAll(".cartel-grid-escenarios");
+
+    tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const diaSeleccionado = btn.getAttribute("data-dia");
+
+            // 1. Desactivar todos los botones y activar el pulsado
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // 2. Ocultar todos los días y mostrar el seleccionado
+            gridDias.forEach((grid) => {
+                if (grid.classList.contains(`cartel-${diaSeleccionado}`)) {
+                    grid.classList.add("active");
+                } else {
+                    grid.classList.remove("active");
+                }
+            });
+        });
+    });
+});
+
+// SELECCIÓN DE DÍAS (PESTAÑAS DEL CARTEL)
+var botonesDia = document.querySelectorAll(".cartel-tab-btn");
+var gridsDia = document.querySelectorAll(".cartel-grid-escenarios");
+
+if (botonesDia.length > 0 && gridsDia.length > 0) {
+
+    botonesDia.forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            var diaSeleccionado = boton.getAttribute("data-dia");
+
+            botonesDia.forEach(function (b) {
+                b.classList.remove("active");
+            });
+
+            gridsDia.forEach(function (grid) {
+                grid.classList.remove("active");
+            });
+
+            boton.classList.add("active");
+
+            var gridObjetivo = document.querySelector("#dia-" + diaSeleccionado);
+            if (gridObjetivo) {
+                gridObjetivo.classList.add("active");
+            }
+
+        });
+
+    });
+
+}
+
