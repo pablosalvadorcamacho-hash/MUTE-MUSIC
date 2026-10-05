@@ -192,12 +192,23 @@ preguntas.forEach(function (pregunta) {
 })
 
 
-// CALCULAR EL TOTAL DE LOS ABONOS
+// SELECCIÓN Y COMPRA DE ABONOS
 var cantidades = document.querySelectorAll(".tickets-cantidad");
 var totalTickets = document.querySelector("#tickets-total");
+var comprarTickets = document.querySelector("#tickets-comprar");
 
-if (totalTickets) {
+var ventanaCompra = document.querySelector("#tickets-compra");
+var tituloCompra = document.querySelector("#tickets-compra-titulo");
+var listaCompra = document.querySelector("#tickets-compra-lista");
+var totalCompra = document.querySelector("#tickets-compra-total");
+var avisoCompra = document.querySelector("#tickets-compra-aviso");
 
+var confirmarCompra = document.querySelector("#tickets-confirmar");
+var cerrarCompra = document.querySelector("#tickets-compra-cerrar");
+
+if (totalTickets && comprarTickets && ventanaCompra) {
+
+    // CALCULAR EL TOTAL
     function actualizarTotal() {
 
         var total = 0;
@@ -209,9 +220,12 @@ if (totalTickets) {
 
             total = total + unidades * precio;
 
-        })
+        });
 
         totalTickets.textContent = total + " €";
+        comprarTickets.disabled = total === 0;
+
+        return total;
 
     }
 
@@ -220,6 +234,83 @@ if (totalTickets) {
         cantidad.addEventListener("change", actualizarTotal);
 
     })
+
+
+    // ABRIR EL RESUMEN DE LA COMPRA
+    comprarTickets.addEventListener("click", function () {
+
+        var total = actualizarTotal();
+
+        if (total === 0) {
+            return;
+        }
+
+        tituloCompra.textContent = "REVISA TUS ENTRADAS";
+        listaCompra.textContent = "";
+
+        cantidades.forEach(function (cantidad) {
+
+            var unidades = Number(cantidad.value);
+            var precio = Number(cantidad.getAttribute("data-precio"));
+
+            if (unidades > 0) {
+
+                var tarjeta = cantidad.closest(".tickets-tarjeta");
+                var nombreAbono = tarjeta.querySelector("h3").textContent;
+
+                var linea = document.createElement("li");
+
+                linea.textContent =
+                    unidades + " x " + nombreAbono +
+                    " — " + unidades * precio + " €";
+
+                listaCompra.appendChild(linea);
+
+            }
+
+        });
+
+        totalCompra.textContent = total + " €";
+
+        avisoCompra.textContent =
+            "Revisa tus entradas antes de confirmar la compra.";
+
+        confirmarCompra.hidden = false;
+        cerrarCompra.textContent = "VOLVER";
+
+        ventanaCompra.showModal();
+
+    });
+
+
+    // CONFIRMAR LA COMPRA
+    confirmarCompra.addEventListener("click", function () {
+
+        tituloCompra.textContent = "¡COMPRA CONFIRMADA!";
+
+        avisoCompra.textContent =
+            "¡Compra realizada con éxito! " +
+            "Gracias por formar parte de MUTE MUSIC.";
+
+        confirmarCompra.hidden = true;
+        cerrarCompra.textContent = "ACEPTAR";
+        cerrarCompra.focus();
+
+        cantidades.forEach(function (cantidad) {
+            cantidad.value = "0";
+        });
+
+        actualizarTotal();
+
+    });
+
+
+    // CERRAR LA VENTANA
+    cerrarCompra.addEventListener("click", function () {
+
+        ventanaCompra.close();
+
+    });
 
     actualizarTotal();
 

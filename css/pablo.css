@@ -951,6 +951,69 @@
 }
 
 
+/* QUÉ INCLUYE EL ABONO */
+.tickets-incluye {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.tickets-incluye li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.tickets-incluye li::before {
+    content: "✓";
+    color: var(--color-acento);
+}
+
+.tickets-nota {
+    margin-bottom: 30px;
+    color: var(--color-secundario);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* BOTÓN DE COMPRA Y AYUDA */
+.tickets-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.tickets-acciones .home-enviar {
+    align-self: auto;
+}
+
+#tickets-comprar:disabled {
+    background-color: var(--color-borde);
+    color: var(--color-secundario);
+    cursor: not-allowed;
+}
+
+
+/* RESUMEN DENTRO DE DIALOGUE */
+.tickets-compra-lista {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.tickets-compra-lista li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.tickets-compra-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
 /* MEDIAQUERY MOBILE */
 @media (max-width: 530px) {
 
@@ -1088,6 +1151,15 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 25px;
+    }
+
+    .tickets-acciones {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .tickets-acciones .home-enviar {
+        width: 100%;
     }
 }
 
