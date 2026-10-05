@@ -1,0 +1,1105 @@
+:root {
+    --color-fondo: #090506;
+    --color-superficie: #0E1C27;
+    --color-texto: #FFFFFF;
+    --color-secundario: #CCCCCC;
+    --color-acento: #FE690B;
+    --color-amarillo: #FCA816;
+    --color-borde: #444444;
+
+    --fuente-texto: Arial, Helvetica, sans-serif;
+    --fuente-titulos: "Iosevka Charon", monospace;
+
+}
+
+
+
+/* cartel */
+.cartel-body,
+.cartel-body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cartel-body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+}
+
+.cartel-body h1 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+}
+
+/* HEADER */
+.cartel-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+
+    padding: 20px 5%;
+    background-color: var(--color-fondo);
+}
+
+
+/* LOGO */
+.cartel-header .logo {
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
+.cartel-header .logo img {
+    display: block;
+    width: 90px;
+    height: auto;
+}
+
+
+/* MENU */
+.cartel-nav .menu {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    list-style: none;
+}
+
+.cartel-nav a {
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.cartel-nav a:hover {
+    color: var(--color-acento);
+}
+
+
+/* BOTÓN DE ENTRADAS */
+.cartel-header .btn-tickets {
+    display: inline-block;
+    padding: 12px 22px;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cartel-header .btn-tickets:hover {
+    background-color: var(--color-amarillo);
+    color: var(--color-fondo);
+}
+
+.cartel-tickets-mobile {
+    display: none;
+}
+
+
+/* BOTÓN DEL MENÚ: OCULTO EN ESCRITORIO */
+.cartel-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.cartel-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+
+    background-color: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.cartel-menu-btn:hover {
+    color: var(--color-acento);
+}
+
+
+/* HAMBURGUESA CONVERTIDO EN X */
+.cartel-menu-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.cartel-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.cartel-menu-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* PORTADA */
+ .cartel-portada {
+    padding: 60px 5%;
+    background-color: var(--color-fondo);
+    background-image: linear-gradient(to right,
+    rgba(9, 5, 6, 0.9),
+    rgba(9, 5, 6, 0.4)),
+    url(../media/img/portada.png);
+    background-size: cover;
+    background-position: center;
+ }
+
+.cartel-portada-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 35px;
+    font-family: var(--fuente-titulos);
+    font-size: 12px;
+}
+
+.cartel-etiqueta {
+    padding: 10px;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento);
+}
+
+.cartel-fecha {
+    color: var(--color-secundario);
+}
+
+.cartel-portada h1 {
+    font-size: calc(24px + 4vw);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.cartel-portada h1 span {
+    color: var(--color-acento);
+}
+
+.cartel-descripcion {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-secundario);
+    margin-bottom: 20px;
+}
+
+.cartel-ubicacion {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.cartel-comprar {
+    display: inline-block;
+    padding: 16px 24px;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cartel-comprar:hover {
+    background-color: var(--color-amarillo);
+}
+
+
+/* INFO DEL FESTIVAL */
+.cartel-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 25px 5%;
+    background-color: var(--color-superficie);
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+    font-family: var(--fuente-titulos);
+}
+
+.cartel-datos > div {
+    flex: 1;
+    min-width: 180px;
+}
+
+.cartel-datos p {
+    font-size: 12px;
+    color: var(--color-secundario);
+    margin-bottom: 8px;
+}
+
+.cartel-datos strong {
+    font-size: 16px;
+}
+
+
+/* EXPERIENCIA Y CANALES */
+.cartel-experiencia {
+    padding: 70px 5%;
+}
+
+.cartel-experiencia-etiqueta {
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.cartel-experiencia h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.cartel-experiencia-intro {
+    color: var(--color-secundario);
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.cartel-canales {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cartel-canal {
+    flex: 1;
+    min-width: 220px;
+    padding: 30px 20px;
+    border: 1px solid var(--color-borde);
+
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    text-align: left;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.cartel-canal span {
+    display: block;
+    font-size: 14px;
+    color: var(--color-secundario);
+}
+
+.cartel-canal strong {
+    display: block;
+    font-size: 24px;
+    margin: 25px 0 12px;
+}
+
+.cartel-canal:hover,
+.cartel-canal.active {
+    border-color: var(--color-acento);
+    background-color: var(--color-superficie);
+}
+
+.cartel-canal-descripcion {
+    margin-top: 25px;
+    padding: 20px;
+    border-left: 3px solid var(--color-acento);
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+
+/* BOTÓN DEL CARRO */
+.cartel-carrito-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.cartel-carrito-btn:hover {
+    color: var(--color-acento);
+}
+
+.cartel-carrito-btn svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+/* VENTANA DEL CARRO */
+.cartel-carrito {
+    margin: auto;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.cartel-carrito::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cartel-carrito h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.cartel-carrito p {
+    color: var(--color-secundario);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.cartel-carrito-cerrar {
+    display: block;
+    margin-top: 20px;
+    border: none;
+
+    background: transparent;
+    color: var(--color-texto);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    text-decoration: underline;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cartel-carrito-cerrar:hover {
+    color: var(--color-acento);
+}
+
+
+/* BOTÓN FLOTANTE DE AYUDA */
+.cartel-ayuda-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cartel-ayuda-btn:hover {
+    background-color: var(--color-amarillo);
+    transform: translateY(-3px);
+}
+
+/* ANIMACIÓN FLOTANTE POP-UP CARRO */
+@keyframes cartel-carrito-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cartel-fondo-entrada {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.cartel-carrito[open] {
+    animation: cartel-carrito-entrada 0.25s ease-out;
+}
+
+.cartel-carrito[open]::backdrop {
+    animation: cartel-fondo-entrada 0.25s ease-out;
+}
+
+
+/* PREVIEW DE CARTEL Y GALERÍA */
+.cartel-avance {
+    display: flex;
+    align-items: center;
+    gap: 7%;
+    padding: 70px 5%;
+    border-top: 1px solid var(--color-borde);
+}
+
+.cartel-avance-numero {
+    font-family: var(--fuente-titulos);
+    font-size: 14vw;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-acento);
+}
+
+.cartel-avance-contenido {
+    flex: 1;
+    min-width: 0;
+}
+
+.cartel-avance-etiqueta {
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    color: var(--color-acento);
+    margin-bottom: 15px;
+}
+
+.cartel-avance h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.cartel-avance-texto {
+    max-width: 550px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.cartel-avance-enlace {
+    display: inline-block;
+    padding: 15px 20px;
+    border: 1px solid var(--color-acento);
+
+    color: var(--color-acento);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cartel-avance-enlace:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.cartel-avance-galeria {
+    background-color: var(--color-superficie);
+}
+
+/* FAQ Y CONTACTO */
+.cartel-ayuda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    padding: 70px 5%;
+    border-top: 1px solid var(--color-borde);
+    scroll-margin-top: 130px;
+}
+
+.cartel-faq,
+.cartel-contacto {
+    flex: 1;
+    min-width: 280px;
+}
+
+.cartel-ayuda-etiqueta {
+    margin-bottom: 15px;
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+}
+
+.cartel-ayuda h2 {
+    margin-bottom: 25px;
+    font-family: var(--fuente-titulos);
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+
+/* PREGUNTAS */
+.cartel-faq details {
+    border-bottom: 1px solid var(--color-borde);
+    overflow: hidden;
+}
+
+.cartel-faq summary {
+    padding: 20px 0;
+
+    font-family: var(--fuente-titulos);
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cartel-faq summary:hover,
+.cartel-faq details[open] summary {
+    color: var(--color-acento);
+}
+
+.cartel-faq details p {
+    padding-bottom: 20px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+
+/* FORMULARIO */
+.cartel-contacto-intro {
+    margin-bottom: 25px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.cartel-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartel-formulario label {
+    margin-bottom: 8px;
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+}
+
+.cartel-formulario input,
+.cartel-formulario textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 14px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+
+    font-family: var(--fuente-texto);
+    font-size: 16px;
+}
+
+.cartel-formulario textarea {
+    resize: vertical;
+}
+
+.cartel-formulario input:focus,
+.cartel-formulario textarea:focus {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+.cartel-enviar {
+    align-self: flex-start;
+    padding: 16px 24px;
+    border: none;
+
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cartel-enviar:hover {
+    background-color: var(--color-amarillo);
+}
+
+.cartel-formulario-aviso {
+    margin-top: 15px;
+    color: var(--color-secundario);
+    line-height: 1.5;
+}
+
+
+/* CONFIRMACIÓN DEL FORMULARIO */
+.cartel-confirmacion {
+    margin: auto;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.cartel-confirmacion h2 {
+    margin-bottom: 20px;
+    font-family: var(--fuente-titulos);
+    font-size: 30px;
+}
+
+.cartel-confirmacion p {
+    margin-bottom: 25px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.cartel-confirmacion::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.cartel-confirmacion[open] {
+    animation: cartel-carrito-entrada 0.25s ease-out;
+}
+
+.cartel-confirmacion[open]::backdrop {
+    animation: cartel-fondo-entrada 0.25s ease-out;
+}
+
+
+/* FOOTER */
+.cartel-footer {
+    padding: 50px 5% 90px;
+    border-top: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    font-family: var(--fuente-titulos);
+}
+
+.cartel-footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.cartel-footer-marca img {
+    display: block;
+    width: 90px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.cartel-footer-marca p {
+    color: var(--color-secundario);
+    font-size: 14px;
+}
+
+.cartel-footer-info {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.cartel-footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+}
+
+.cartel-footer-nav a {
+    color: var(--color-texto);
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.cartel-footer-nav a:hover {
+    color: var(--color-acento);
+}
+
+.cartel-footer-creditos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-top: 85px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde);
+
+    color: var(--color-secundario);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* REDES SOCIALES */
+.cartel-footer-redes {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.cartel-footer-redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    width: 40px;
+    height: 40px;
+
+    color: var(--color-texto);
+    transition: color 0.2s ease;
+}
+
+.cartel-footer-redes a:hover {
+    color: var(--color-acento);
+}
+
+.cartel-footer-redes i {
+    font-size: 22px;
+}
+
+
+/* TICKETS */
+.tickets-main {
+    padding: 60px 5%;
+}
+
+.tickets-intro {
+    margin-bottom: 50px;
+}
+
+.tickets-etiqueta {
+    margin-bottom: 15px;
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+}
+
+.tickets-intro h1 {
+    margin-bottom: 20px;
+    font-size: calc(24px + 4vw);
+    line-height: 1.1;
+}
+
+.tickets-intro > p {
+    line-height: 1.6;
+}
+
+.tickets-fecha {
+    margin-top: 20px;
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos);
+}
+
+.tickets-seleccion h2 {
+    margin-bottom: 25px;
+    font-family: var(--fuente-titulos);
+    font-size: 28px;
+}
+
+
+/* TARJETAS */
+.tickets-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.tickets-tarjeta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+}
+
+.tickets-tarjeta h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.tickets-precio {
+    margin: 20px 0;
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.tickets-descripcion {
+    margin-bottom: 30px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.tickets-tarjeta label {
+    margin-top: auto;
+    margin-bottom: 10px;
+    font-family: var(--fuente-titulos);
+    line-height: 1.4;
+}
+
+.tickets-cantidad {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+
+    font-family: var(--fuente-titulos);
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: border-color 0.2s ease;
+}
+
+.tickets-cantidad:hover {
+    border-color: var(--color-acento);
+}
+
+.tickets-cantidad:focus {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+
+/* RESUMEN */
+.tickets-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid var(--color-acento);
+}
+
+.tickets-resumen p {
+    margin-bottom: 10px;
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+}
+
+.tickets-resumen strong {
+    font-family: var(--fuente-titulos);
+    font-size: 40px;
+}
+
+.tickets-ayuda {
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    transition: color 0.2s ease;
+}
+
+.tickets-ayuda:hover {
+    color: var(--color-acento);
+}
+
+
+/* MEDIAQUERY MOBILE */
+@media (max-width: 530px) {
+
+    .cartel-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .cartel-menu-btn {
+        display: flex;
+    }
+
+    .cartel-nav {
+        display: none;
+        width: 100%;
+        order: 1;
+    }
+
+    .cartel-nav.active {
+        display: block;
+        animation: abrirMenu 0.3s ease-out;
+    }
+
+    .cartel-nav .menu {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px 0;
+    }
+
+    .cartel-portada {
+        padding: 40px 5%;
+    }
+
+    .cartel-portada-info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 30px;
+    }
+
+    .cartel-ubicacion {
+        line-height: 1.5;
+    }
+
+    .cartel-datos {
+        flex-direction: column;
+    }
+
+    .cartel-datos > div {
+        min-width: 0;
+    }
+
+    .cartel-experiencia {
+        padding: 45px 5%;
+    }
+
+    .cartel-experiencia h2 {
+        font-size: 32px;
+    }
+
+    .cartel-canales {
+        flex-direction: column;
+    }
+
+    .cartel-canal {
+        min-width: 0;
+    }
+
+    .cartel-avance {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 45px 5%;
+    }
+
+    .cartel-avance-numero {
+        font-size: 70px;
+    }
+
+    .cartel-avance h2 {
+        font-size: 32px;
+    }
+
+    .cartel-tickets-mobile {
+        display: block;
+    }
+
+    .cartel-header .cartel-tickets-desktop {
+        display: none;
+    }
+
+    .cartel-ayuda {
+        flex-direction: column;
+        gap: 40px;
+        padding: 45px 5%;
+    }
+
+    .cartel-faq,
+    .cartel-contacto {
+        min-width: 0;
+    }
+
+    .cartel-footer {
+        text-align: center;
+    }
+
+    .cartel-footer-contenido,
+    .cartel-footer-creditos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartel-footer-marca img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cartel-footer-redes {
+        justify-content: center;
+    }
+
+    .tickets-main {
+        padding: 40px 5%;
+    }
+
+    .tickets-lista {
+        flex-direction: column;
+    }
+
+    .tickets-tarjeta {
+        min-width: 0;
+        padding: 25px;
+    }
+
+    .tickets-resumen {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+    }
+}
+
+
+/* ANIMACIÓN DEL MENÚ */
+@keyframes abrirMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
