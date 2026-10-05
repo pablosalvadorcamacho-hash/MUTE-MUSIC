@@ -416,7 +416,7 @@ if (selectorFecha && totalTickets && anadirTickets) {
                 Number(cantidad.value) *
                 Number(cantidad.getAttribute("data-precio"));
 
-        });
+        })
 
         totalTickets.textContent = total + " €";
         anadirTickets.disabled = total === 0;
