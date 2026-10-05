@@ -989,7 +989,9 @@
     align-self: auto;
 }
 
-#tickets-comprar:disabled {
+
+#tickets-comprar:disabled,
+#tickets-anadir:disabled {
     background-color: var(--color-borde);
     color: var(--color-secundario);
     cursor: not-allowed;
@@ -1011,6 +1013,125 @@
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+
+/* SELECCIÓN DE FECHA */
+.tickets-fecha-selector {
+    margin-bottom: 35px;
+}
+
+.tickets-fecha-selector label {
+    display: block;
+    margin-bottom: 12px;
+    font-family: var(--fuente-titulos);
+}
+
+.tickets-fecha-selector select {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px;
+
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-superficie);
+    color: var(--color-texto);
+
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: border-color 0.2s ease;
+}
+
+.tickets-fecha-selector select:hover {
+    border-color: var(--color-acento);
+}
+
+.tickets-fecha-selector select:focus {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
+
+
+/* AVISO Y FINALIZACIÓN */
+.tickets-aviso {
+    margin-top: 15px;
+    color: var(--color-secundario);
+    line-height: 1.5;
+}
+
+.tickets-pago {
+    margin-top: 45px;
+    padding-top: 35px;
+    border-top: 1px solid var(--color-borde);
+    scroll-margin-top: 130px;
+}
+
+.tickets-pago p {
+    margin-bottom: 20px;
+    color: var(--color-secundario);
+    line-height: 1.6;
+}
+
+.tickets-pago .tickets-pago-total {
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    font-size: 24px;
+}
+
+
+/* ENTRADAS DEL CARRITO */
+.carrito-lista {
+    list-style: none;
+}
+
+.carrito-lista li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-borde);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.carrito-eliminar {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 0;
+    border: none;
+
+    background: transparent;
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos);
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.carrito-eliminar:hover {
+    color: var(--color-acento);
+}
+
+.carrito-seguir {
+    display: block;
+    margin-top: 20px;
+    color: var(--color-texto);
+    font-family: var(--fuente-titulos);
+    transition: color 0.2s ease;
+}
+
+.carrito-seguir:hover {
+    color: var(--color-acento);
+}
+
+.home-carrito,
+#tickets-compra {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* RESPETAR LOS ELEMENTOS OCULTOS */
+.home-body [hidden] {
+    display: none;
 }
 
 

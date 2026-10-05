@@ -393,10 +393,23 @@
 
         <h2 id="home-carrito-titulo">TU CARRITO</h2>
 
-        <p>Todavía no has añadido entradas.</p>
+        <p id="carrito-vacio">Todavía no has añadido entradas.</p>
 
-        <a href="tickets.html" class="home-comprar">
-            VER ENTRADAS
+        <ul class="carrito-lista" id="carrito-lista"></ul>
+
+        <p aria-live="polite">
+            Total: <strong id="carrito-total">0 €</strong>
+        </p>
+
+        <p id="carrito-aviso" aria-live="polite"></p>
+
+        <a href="tickets.html#tickets-pago" class="home-comprar"
+            id="carrito-pagar" hidden>
+            FINALIZAR COMPRA ↗
+        </a>
+
+        <a href="tickets.html" class="carrito-seguir">
+            Elegir entradas
         </a>
 
         <button class="home-carrito-cerrar" type="button">
