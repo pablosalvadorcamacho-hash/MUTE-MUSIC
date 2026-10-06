@@ -164,9 +164,8 @@
 
 /* PORTADA */
 .cartel-dias {
-    padding: 20px 5% 60px;
+    padding: 70px 5% 60px;
     border: 1px solid var(--color-borde);
-    background-color: var(--color-superficie);
  }
 
 .cartel-seleccion {
@@ -377,6 +376,10 @@
     padding: 70px 5%;
 }
 
+#cartel-experiencia {
+    background-color: var(--color-borde);
+}
+
 .cartel-experiencia-etiqueta {
     color: var(--color-acento);
     font-family: var(--fuente-titulos);
@@ -452,7 +455,6 @@
 }
 
 .cartel-canal-cascos-descripcion {
-    display: grid;
     margin-top: 25px;
     padding: 20px;
     color: var(--color-secundario);
@@ -1391,4 +1393,489 @@
 .cartel-comprar:hover {
     background-color: #1a1a1a;
     transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+GALLERY 
+==========================================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.5;
+}
+
+.gallery-principal {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.gallery-seccion {
+    margin-bottom: 70px;
+}
+
+/* ==========================================================================
+   CABECERAS DE SECCIÓN
+   ========================================================================== */
+.gallery-cabecera {
+    margin-bottom: 25px;
+}
+
+.gallery-etiqueta {
+    font-size: 0.8rem;
+    color: #888888;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.gallery-etiqueta .gallery-numero-etiqueta {
+    color: #ff3b30;
+    margin-right: 4px;
+}
+
+.gallery-fila-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.gallery-titulo-principal {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.gallery-subtitulo-ubicacion,
+.gallery-subtitulo-enlace {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   SECCIÓN 1: MAPA CONCEPTUAL INTERACTIVO
+   ========================================================================== */
+.gallery-mapa-contenedor {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 20px;
+    background-color: #121416;
+    border: 1px solid #1f2226;
+}
+
+.gallery-mapa-lienzo {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-mapa-lienzo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gallery-etiqueta-mapa-superior {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 0.75rem;
+    color: #5a6660;
+    letter-spacing: 1.5px;
+}
+
+.gallery-orientacion-mapa {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.8rem;
+    color: #5a6660;
+}
+
+/* Puntos de interés */
+.gallery-punto-interes {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.gallery-punto-interes:hover,
+.gallery-punto-interes.active {
+    transform: scale(1.15);
+}
+
+.gallery-icono-punto {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    margin-bottom: 6px;
+}
+
+.gallery-nombre-punto {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.7);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.gallery-punto-azul .gallery-icono-punto { background-color: #3b82f6; }
+.gallery-punto-rojo .gallery-icono-punto { background-color: #ef4444; }
+.gallery-punto-verde .gallery-icono-punto { background-color: #22c55e; }
+.gallery-punto-blanco .gallery-icono-punto { background-color: #e5e7eb; color: #000; }
+.gallery-punto-naranja .gallery-icono-punto { background-color: #f97316; }
+.gallery-punto-acceso .gallery-icono-punto { background-color: #ffffff; color: #000; }
+
+/* Posicionamiento en el mapa */
+.gallery-punto-azul { top: 20%; left: 30%; }
+.gallery-punto-rojo { top: 20%; left: 70%; }
+.gallery-punto-verde { top: 60%; left: 65%; }
+.gallery-punto-blanco { top: 40%; left: 48%; }
+.gallery-punto-naranja { top: 68%; left: 32%; }
+.gallery-punto-acceso { top: 55%; left: 18%; }
+
+/* Panel Lateral */
+.gallery-mapa-informacion {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #121416;
+}
+
+.gallery-etiqueta-info {
+    font-size: 0.75rem;
+    color: #ff3b30;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.gallery-titulo-info {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin-top: 5px;
+    line-height: 1.1;
+}
+
+.gallery-descripcion-info {
+    font-size: 0.85rem;
+    color: #999999;
+    margin-top: 10px;
+}
+
+.gallery-divisor-info {
+    border: none;
+    border-top: 1px solid #22262a;
+    margin: 20px 0;
+}
+
+.gallery-info-dinamica {
+    min-height: 80px;
+}
+
+.gallery-titulo-punto {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.gallery-texto-punto {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+}
+
+.gallery-direccion-info {
+    font-size: 0.8rem;
+    color: #777777;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.gallery-boton-principal {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 20px;
+    border: 1px solid #333333;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.gallery-boton-principal:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================================================
+   SECCIÓN 2: GOOGLE MAPS EMBED
+   ========================================================================== */
+.gallery-gmaps-contenedor {
+    width: 100%;
+    border: 1px solid #1f2226;
+    filter: grayscale(80%) invert(90%) contrast(120%);
+    transition: filter 0.3s ease;
+}
+
+.gallery-gmaps-contenedor:hover {
+    filter: grayscale(0%) invert(0%) contrast(100%);
+}
+
+.gallery-gmaps-contenedor iframe {
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================================================
+   SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
+   ========================================================================== */
+.gallery-rejilla-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-tarjeta-foto {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #1a1e1c;
+}
+
+.gallery-tarjeta-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-tarjeta-foto:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-capa-foto {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    transition: background 0.3s ease;
+}
+
+.gallery-tarjeta-foto:hover .gallery-capa-foto {
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.gallery-titulo-tarjeta {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 85%;
+    text-transform: uppercase;
+}
+
+.gallery-icono-tarjeta {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.gallery-tarjeta-foto:hover .gallery-icono-tarjeta {
+    transform: rotate(90deg);
+    color: #ff3b30;
+}
+
+.gallery-leyenda-pie {
+    font-size: 0.75rem;
+    color: #555555;
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   VISOR MODAL (LIGHTBOX)
+   ========================================================================== */
+.gallery-visor-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-visor-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-visor-fondo {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(5px);
+}
+
+.gallery-visor-contenido {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #121416;
+    border: 1px solid #22262a;
+    padding: 30px;
+}
+
+.gallery-visor-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gallery-visor-cerrar:hover {
+    color: #ff3b30;
+}
+
+.gallery-visor-navegacion {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #ffffff;
+    font-size: 1.5rem;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.gallery-visor-navegacion:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.gallery-visor-anterior { left: -60px; }
+.gallery-visor-siguiente { right: -60px; }
+
+.gallery-visor-cuerpo {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.gallery-visor-imagen-contenedor img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border: 1px solid #222;
+}
+
+.gallery-visor-contador {
+    font-size: 0.8rem;
+    color: #ff3b30;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.gallery-visor-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.gallery-visor-descripcion {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   ADAPTACIÓN RESPONSIVE (MÓVIL Y TABLET)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .gallery-rejilla-fotos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-mapa-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-visor-anterior { left: 10px; z-index: 20; }
+    .gallery-visor-siguiente { right: 10px; z-index: 20; }
+}
+
+@media (max-width: 768px) {
+    .gallery-titulo-principal {
+        font-size: 2rem;
+    }
+
+    .gallery-rejilla-fotos {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-visor-cuerpo {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-visor-contenido {
+        padding: 20px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .gallery-visor-imagen-contenedor img {
+        max-height: 300px;
+    }
+
+    .gallery-mapa-lienzo {
+        min-height: 350px;
+    }
 }
