@@ -131,67 +131,6 @@ if (formulario && confirmacion && aceptar) {
 
 }
 
-
-// ABRIR Y CERRAR LAS FAQ FLUIDO
-var preguntas = document.querySelectorAll(".cartel-faq details");
-
-preguntas.forEach(function (pregunta) {
-
-    var titulo = pregunta.querySelector("summary");
-    var animando = false;
-
-    titulo.addEventListener("click", function (evento) {
-
-        // EVITAR QUE SE ABRA O CIERRE BRUSCO
-        evento.preventDefault();
-
-        if (animando) {
-            return;
-        }
-
-        animando = true;
-
-        var estabaAbierta = pregunta.open;
-        var alturaInicial = pregunta.getBoundingClientRect().height;
-        var alturaFinal;
-
-        if (estabaAbierta) {
-
-            // ALTURA DEL TÍTULO MÁS BORDE
-            alturaFinal = titulo.getBoundingClientRect().height + 1;
-
-        } else {
-
-            pregunta.open = true;
-            alturaFinal = pregunta.getBoundingClientRect().height;
-
-        }
-
-        var animacion = pregunta.animate(
-            [
-                { height: alturaInicial + "px" },
-                { height: alturaFinal + "px" }
-            ],
-            {
-                duration: 250,
-                easing: "ease-in-out",
-                fill: "both"
-            }
-        )
-
-        animacion.onfinish = function () {
-
-            pregunta.open = !estabaAbierta;
-            animacion.cancel();
-            animando = false;
-
-        }
-
-    })
-
-})
-
-
 // CALCULAR EL TOTAL DE LOS ABONOS
 var cantidades = document.querySelectorAll(".tickets-cantidad");
 var totalTickets = document.querySelector("#tickets-total");
@@ -224,30 +163,6 @@ if (totalTickets) {
     actualizarTotal();
 
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    const tabButtons = document.querySelectorAll(".cartel-tab-btn");
-    const gridDias = document.querySelectorAll(".cartel-grid-escenarios");
-
-    tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const diaSeleccionado = btn.getAttribute("data-dia");
-
-            // 1. Desactivar todos los botones y activar el pulsado
-            tabButtons.forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            // 2. Ocultar todos los días y mostrar el seleccionado
-            gridDias.forEach((grid) => {
-                if (grid.classList.contains(`cartel-${diaSeleccionado}`)) {
-                    grid.classList.add("active");
-                } else {
-                    grid.classList.remove("active");
-                }
-            });
-        });
-    });
-});
 
 // SELECCIÓN DE DÍAS (PESTAÑAS DEL CARTEL)
 var botonesDia = document.querySelectorAll(".cartel-tab-btn");
@@ -422,20 +337,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tarjetasFotos.forEach((tarjeta, idx) => {
         tarjeta.addEventListener("click", () => abrirVisor(idx));
-    });
-
-    botonCerrar.addEventListener("click", cerrarVisor);
-    fondoVisor.addEventListener("click", cerrarVisor);
+    }
 
     botonSiguiente.addEventListener("click", () => {
         indiceActual = (indiceActual + 1) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    });
+    })
 
     botonAnterior.addEventListener("click", () => {
         indiceActual = (indiceActual - 1 + tarjetasFotos.length) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    });
-
-    
-});
+    })
+ 
+}

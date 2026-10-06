@@ -395,7 +395,7 @@
 }
 
 .cartel-experiencia-intro {
-    color: var(--color-secundario);
+    color: var(--color-texto);
     line-height: 1.6;
     margin-bottom: 35px;
 }
@@ -746,6 +746,9 @@
     line-height: 1.6;
 }
 
+.cartel-faq details[open] p {
+    animation: cartel-faq-entrada 0.25s ease;
+}
 
 /* FORMULARIO */
 .cartel-contacto-intro {
@@ -1316,10 +1319,37 @@
     }
 
     .cartel-comprar {
-        width: 100%; /* El botón ocupa todo el ancho en el móvil */
+        width: 100%; 
         box-sizing: border-box;
         padding: 16px 20px;
         font-size: 12px;
+    }
+
+    .gallery-titulo-principal {
+        font-size: 2rem;
+    }
+
+    .gallery-rejilla-fotos {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-visor-cuerpo {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-visor-contenido {
+        padding: 20px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .gallery-visor-imagen-contenedor img {
+        max-height: 300px;
+    }
+
+    .gallery-mapa-lienzo {
+        min-height: 350px;
     }
 
 }
@@ -1377,8 +1407,8 @@
     background-color: #000000;
     color: #ffffff;
     text-decoration: none;
-    font-family: sans-serif;
-    font-size: 13px;
+    font-family: var(--fuente-titulos);
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
     padding: 18px 32px;
@@ -1838,7 +1868,7 @@ body {
 /* ==========================================================================
    ADAPTACIÓN RESPONSIVE (MÓVIL Y TABLET)
    ========================================================================== */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
     .gallery-rejilla-fotos {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1849,33 +1879,4 @@ body {
 
     .gallery-visor-anterior { left: 10px; z-index: 20; }
     .gallery-visor-siguiente { right: 10px; z-index: 20; }
-}
-
-@media (max-width: 768px) {
-    .gallery-titulo-principal {
-        font-size: 2rem;
-    }
-
-    .gallery-rejilla-fotos {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-visor-cuerpo {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-visor-contenido {
-        padding: 20px;
-        width: 95%;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .gallery-visor-imagen-contenedor img {
-        max-height: 300px;
-    }
-
-    .gallery-mapa-lienzo {
-        min-height: 350px;
-    }
-}
+} */
