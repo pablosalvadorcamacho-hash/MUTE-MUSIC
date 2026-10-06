@@ -224,3 +224,218 @@ if (totalTickets) {
     actualizarTotal();
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".cartel-tab-btn");
+    const gridDias = document.querySelectorAll(".cartel-grid-escenarios");
+
+    tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const diaSeleccionado = btn.getAttribute("data-dia");
+
+            // 1. Desactivar todos los botones y activar el pulsado
+            tabButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // 2. Ocultar todos los días y mostrar el seleccionado
+            gridDias.forEach((grid) => {
+                if (grid.classList.contains(`cartel-${diaSeleccionado}`)) {
+                    grid.classList.add("active");
+                } else {
+                    grid.classList.remove("active");
+                }
+            });
+        });
+    });
+});
+
+// SELECCIÓN DE DÍAS (PESTAÑAS DEL CARTEL)
+var botonesDia = document.querySelectorAll(".cartel-tab-btn");
+var gridsDia = document.querySelectorAll(".cartel-grid-escenarios");
+
+if (botonesDia.length > 0 && gridsDia.length > 0) {
+
+    botonesDia.forEach(function (boton) {
+
+        boton.addEventListener("click", function () {
+
+            var diaSeleccionado = boton.getAttribute("data-dia");
+
+            botonesDia.forEach(function (b) {
+                b.classList.remove("active");
+            });
+
+            gridsDia.forEach(function (grid) {
+                grid.classList.remove("active");
+            });
+
+            boton.classList.add("active");
+
+            var gridObjetivo = document.querySelector("#dia-" + diaSeleccionado);
+            if (gridObjetivo) {
+                gridObjetivo.classList.add("active");
+            }
+
+        });
+
+    });
+
+}
+
+
+////////////////////////////
+/////////* GALLERY *////////
+////////////////////////////
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ==========================================
+    // 1. LÓGICA DEL MAPA CONCEPTUAL INTERACTIVO
+    // ==========================================
+    const puntosInteres = document.querySelectorAll(".gallery-punto-interes");
+    const contenedorDetallesPunto = document.getElementById("gallery-detalles-punto");
+
+    const datosMapa = {
+        blue: {
+            title: "Blue Frequency",
+            desc: "Escenario azul · Electrónica y House. Canal 01 de tus auriculares."
+        },
+        red: {
+            title: "Red Heat",
+            desc: "Escenario rojo · Techno de alta intensidad y ritmos contundentes. Canal 02."
+        },
+        green: {
+            title: "Green Groove",
+            desc: "Escenario verde · Disco, Funk y sonidos orgánicos. Canal 03 de tus auriculares."
+        },
+        barras: {
+            title: "Zona de Barras",
+            desc: "Puntos de hidratación y recarga de pulseras cashless distribuidos en la zona central."
+        },
+        auriculares: {
+            title: "Punto de Auriculares",
+            desc: "Recogida y entrega de auriculares inalámbricos. Imprescindible presentar tu entrada."
+        },
+        acceso: {
+            title: "Acceso Principal",
+            desc: "Entrada general, validación de tickets y control de seguridad de Caja Mágica."
+        }
+    };
+
+    puntosInteres.forEach(boton => {
+        boton.addEventListener("click", function () {
+            puntosInteres.forEach(p => p.classList.remove("active"));
+            this.classList.add("active");
+
+            const clavePunto = this.getAttribute("data-punto");
+            const datos = datosMapa[clavePunto];
+
+            if (datos && contenedorDetallesPunto) {
+                contenedorDetallesPunto.innerHTML = `
+                    <h4 class="gallery-titulo-punto">${datos.title}</h4>
+                    <p class="gallery-texto-punto">${datos.desc}</p>
+                `;
+            }
+        });
+    });
+
+    // ==========================================
+    // 2. LÓGICA DE LA GALERÍA Y VISOR MODAL (9 FOTOS)
+    // ==========================================
+    const tarjetasFotos = document.querySelectorAll(".gallery-tarjeta-foto");
+    const visorModal = document.getElementById("gallery-visor-modal");
+    const visorImg = document.getElementById("gallery-visor-img");
+    const visorTitulo = document.getElementById("gallery-visor-titulo");
+    const visorDescripcion = document.getElementById("gallery-visor-descripcion");
+    const visorContador = document.getElementById("gallery-visor-contador");
+    const botonCerrar = document.querySelector(".gallery-visor-cerrar");
+    const botonAnterior = document.querySelector(".gallery-visor-anterior");
+    const botonSiguiente = document.querySelector(".gallery-visor-siguiente");
+    const fondoVisor = document.querySelector(".gallery-visor-fondo");
+
+    const datosFotos = [
+        {
+            title: "MILES DE PERSONAS. TU PROPIO MUNDO.",
+            desc: "Una multitud conectada a través de frecuencias individuales. Cada asistente vive una experiencia única sumergido en su propia atmósfera auditiva dentro del recinto."
+        },
+        {
+            title: "LA NOCHE TIENE TRES COLORES.",
+            desc: "Los canales de tus auriculares iluminan el espacio. Visualiza en tiempo real qué música está escuchando la multitud a tu alrededor mediante el código de luces."
+        },
+        {
+            title: "EL ESCENARIO LO PONES TÚ.",
+            desc: "Inmersión total bajo arquitecturas de luz y sonido. La puesta en escena en Caja Mágica transforma el espacio exterior en una pista de baile masiva."
+        },
+        {
+            title: "ENERGÍA EN CADA CANAL.",
+            desc: "Bases potentes y frecuencias diseñadas para hacer vibrar al público. Cambia de estilo musical con solo presionar un botón en tu dispositivo."
+        },
+        {
+            title: "CONEXIÓN SIN INTERFERENCIAS.",
+            desc: "Sonido de alta fidelidad directamente a tus oídos. Sin límites de volumen acústico exterior, permitiendo la máxima potencia musical durante la madrugada."
+        },
+        {
+            title: "LUCES QUE GUÍAN EL RITMO.",
+            desc: "Sincronización óptica entre los shows del escenario principal y la iluminación ambiental que rodea toda la infraestructura del recinto."
+        },
+        {
+            title: "EL ARTE DE CREAR VIBRACIONES.",
+            desc: "DJs internacionales transmitiendo simultáneamente en 3 canales distintos desde los escenarios principales de MUTE Madrid."
+        },
+        {
+            title: "DONDE COMIENZA LA MAGIA.",
+            desc: "Los primeros destellos al atardecer marcan la apertura de puertas y la entrega de los auriculares inalámbricos para iniciar la jornada."
+        },
+        {
+            title: "HASTA QUE VUELVA A SALIR EL SOL.",
+            desc: "Los momentos finales de una velada inolvidable. La comunidad unida celebrando la música electrónica hasta el amanecer."
+        }
+    ];
+
+    let indiceActual = 0;
+
+    function abrirVisor(indice) {
+        indiceActual = indice;
+        actualizarContenidoVisor();
+        visorModal.classList.add("active");
+        visorModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function cerrarVisor() {
+        visorModal.classList.remove("active");
+        visorModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    function actualizarContenidoVisor() {
+        const tarjeta = tarjetasFotos[indiceActual];
+        const rutaImagen = tarjeta.querySelector("img").src;
+        const datos = datosFotos[indiceActual];
+
+        visorImg.src = rutaImagen;
+        visorTitulo.textContent = datos.title;
+        visorDescripcion.textContent = datos.desc;
+        visorContador.textContent = `${indiceActual + 1} / ${datosFotos.length}`;
+    }
+
+    tarjetasFotos.forEach((tarjeta, idx) => {
+        tarjeta.addEventListener("click", () => abrirVisor(idx));
+    });
+
+    botonCerrar.addEventListener("click", cerrarVisor);
+    fondoVisor.addEventListener("click", cerrarVisor);
+
+    botonSiguiente.addEventListener("click", () => {
+        indiceActual = (indiceActual + 1) % tarjetasFotos.length;
+        actualizarContenidoVisor();
+    });
+
+    botonAnterior.addEventListener("click", () => {
+        indiceActual = (indiceActual - 1 + tarjetasFotos.length) % tarjetasFotos.length;
+        actualizarContenidoVisor();
+    });
+
+    
+});

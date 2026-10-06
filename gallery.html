@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUTE MUSIC</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/mario.css">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body class="cartel-body">
+    <header class="cartel-header">
+
+        <a href="index.html" class="logo">
+            <img src="media/img/LOGO-MM.SVG" alt="MUTE MUSIC">
+        </a>
+
+        <nav class="cartel-nav" id="cartel-navegacion">
+            <ul class="menu">
+
+                <li>
+                    <a href="cartel.html">Cartel</a>
+                </li>
+
+                <li>
+                    <a href="gallery.html">Galería</a>
+                </li>
+
+                <li class="cartel-tickets-mobile">
+                    <a href="tickets.html" class="btn-tickets">
+                        Comprar tickets
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- CARRITO -->
+        <button class="cartel-carrito-btn" type="button"
+            aria-label="Abrir carrito">
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+
+        </button>
+
+        <!-- ENTRADAS EN ESCRITORIO -->
+        <a href="tickets.html" class="btn-tickets cartel-tickets-desktop">
+            Comprar tickets
+        </a>
+
+        <!-- MENÚ MOBILE -->
+        <button class="cartel-menu-btn" type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="cartel-navegacion">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+    
+    <!-- MAIN -->
+
+    <main class="gallery-principal">
+
+        <!-- MAPA CONCEPTUAL -->
+        <section class="gallery-seccion gallery-ubicacion">
+            <div class="gallery-cabecera">
+                <div class="gallery-etiqueta"><span class="gallery-numero-etiqueta">[03]</span> TU PUNTO DE ENCUENTRO</div>
+                <div class="gallery-fila-titulo">
+                    <h2 class="gallery-titulo-principal">TODOS LOS CAMINOS, MADRID.</h2>
+                    <span class="gallery-subtitulo-ubicacion">📍 Caja Mágica · Recinto exterior</span>
+                </div>
+            </div>
+
+            <!-- Mapa Interactivo del Recinto -->
+            <div class="gallery-mapa-contenedor">
+                <div class="gallery-mapa-lienzo">
+                    <span class="gallery-etiqueta-mapa-superior">MAPA CONCEPTUAL DEL RECINTO</span>
+                    <img src="media/img/Mapa_Mute.png" alt="Mapa">
+                </div>
+
+                <!-- Panel Lateral Informativo -->
+                <div class="gallery-mapa-informacion">
+                    <span class="gallery-etiqueta-info">EXPLORA EL RECINTO</span>
+                    <h3 class="gallery-titulo-info">TODO A TU ALCANCE.</h3>
+                    <p class="gallery-descripcion-info">Toca los puntos del mapa y encuentra tu próximo destino.</p>
+                    <hr class="gallery-divisor-info">
+                    
+                    <div id="gallery-detalles-punto" class="gallery-info-dinamica">
+                        <h4 class="gallery-titulo-punto">Blue Frequency</h4>
+                        <p class="gallery-texto-punto">Escenario azul · Electrónica y House. Canal 01 de tus auriculares.</p>
+                    </div>
+
+                    <div class="gallery-direccion-info">
+                        <p>Caminos de Perales, 23</p>
+                        <p>28041 Madrid</p>
+                        <p>Metro: San Fermín–Orcasur (L3)</p>
+                    </div>
+
+                    <a href="#gallery-seccion-google-maps" class="gallery-boton-principal">CÓMO LLEGAR ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: MAPA DE GOOGLE MAPS DE LA UBICACIÓN DEL RECINTO -->
+        <section id="gallery-seccion-google-maps" class="gallery-seccion gallery-seccion-gmaps">
+            <div class="gallery-cabecera">
+                <div class="gallery-etiqueta"><span class="gallery-numero-etiqueta">[03.5]</span> MAPA DEL RECINTO</div>
+                <h2 class="gallery-titulo-principal">UBICACIÓN DEL RECINTO</h2>
+            </div>
+            <div class="gallery-gmaps-contenedor">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.2619717140733!2d-3.687483723441584!3d40.37089805850426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8400a402bebf91d3%3A0xb36b7ef99c9c3e92!2sCaja%20M%C3%A1gica!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: GALERÍA DE FOTOS (GRID DE 9 FOTOS) -->
+        <section class="gallery-seccion gallery-fotos">
+            <div class="gallery-cabecera">
+                <div class="gallery-etiqueta"><span class="gallery-numero-etiqueta">[04]</span> ESTO NO SE EXPLICA. SE VIVE.</div>
+                <div class="gallery-fila-titulo">
+                    <h2 class="gallery-titulo-principal">NOS VEMOS EN LA PISTA.</h2>
+                    <span class="gallery-subtitulo-enlace">EL MOOD DE MUTE ↗</span>
+                </div>
+            </div>
+
+            <!-- Grid de 9 Imágenes -->
+            <div class="gallery-rejilla-fotos">
+                
+                <div class="gallery-tarjeta-foto" data-indice="0">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Miles de personas">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">MILES DE PERSONAS. TU PROPIO MUNDO.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="1">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Luces de noche">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">LA NOCHE TIENE TRES COLORES.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="2">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="El Escenario">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">EL ESCENARIO LO PONES TÚ.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="3">
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80" alt="Energía pura">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">ENERGÍA EN CADA CANAL.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="4">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Conexión total">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">CONEXIÓN SIN INTERFERENCIAS.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="5">
+                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=800&q=80" alt="Luces Láser">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">LUCES QUE GUÍAN EL RITMO.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="6">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="DJ Set">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">EL ARTE DE CREAR VIBRACIONES.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="7">
+                    <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc436?auto=format&fit=crop&w=800&q=80" alt="Atardecer festival">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">DONDE COMIENZA LA MAGIA.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+                <div class="gallery-tarjeta-foto" data-indice="8">
+                    <img src="https://images.unsplash.com/photo-1516873240891-4bf014598ab4?auto=format&fit=crop&w=800&q=80" alt="Manos arriba">
+                    <div class="gallery-capa-foto">
+                        <h3 class="gallery-titulo-tarjeta">HASTA QUE VUELVA A SALIR EL SOL.</h3>
+                        <span class="gallery-icono-tarjeta">+</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <p class="gallery-leyenda-pie">Imágenes de ambiente de referencia · Espacios preparados para las fotografías de la edición Madrid.</p>
+        </section>
+
+    </main>
+
+    <!-- MODAL / VISOR PARA VER LAS FOTOS EN GRANDE -->
+    <div id="gallery-visor-modal" class="gallery-visor-modal" aria-hidden="true">
+        <div class="gallery-visor-fondo"></div>
+        <div class="gallery-visor-contenido">
+            <button class="gallery-visor-cerrar" aria-label="Cerrar">&times;</button>
+            <button class="gallery-visor-navegacion gallery-visor-anterior" aria-label="Anterior">&#10094;</button>
+            <button class="gallery-visor-navegacion gallery-visor-siguiente" aria-label="Siguiente">&#10095;</button>
+            
+            <div class="gallery-visor-cuerpo">
+                <div class="gallery-visor-imagen-contenedor">
+                    <img id="gallery-visor-img" src="" alt="Foto en grande">
+                </div>
+                <div class="gallery-visor-detalles">
+                    <span id="gallery-visor-contador" class="gallery-visor-contador">1 / 9</span>
+                    <h3 id="gallery-visor-titulo" class="gallery-visor-titulo"></h3>
+                    <p id="gallery-visor-descripcion" class="gallery-visor-descripcion"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="cartel-footer">
+
+        <div class="cartel-footer-contenido">
+
+            <div class="cartel-footer-marca">
+                <a href="index.html">
+                    <img src="media/img/LOGO-MM.SVG" alt="MUTE MUSIC">
+                </a>
+
+                <p>EL SILENCIO SUENA MÁS FUERTE.</p>
+            </div>
+
+            <div class="cartel-footer-info">
+                <p>18 — 20 JUNIO 2027</p>
+                <p>CAJA MÁGICA, MADRID</p>
+            </div>
+
+            <nav class="cartel-footer-nav" aria-label="Enlaces del pie de página">
+                <ul>
+                    <li><a href="cartel.html">Cartel</a></li>
+                    <li><a href="gallery.html">Galería y mapas</a></li>
+                    <li><a href="tickets.html">Comprar tickets</a></li>
+                    <li><a href="#cartel-ayuda">FAQ y contacto</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="cartel-footer-creditos">
+
+            <div>
+                <p>© 2027 MUTE MUSIC</p>
+
+                <div class="cartel-footer-redes">
+
+                    <a href="https://www.instagram.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://x.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="X">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <p>Creado y Diseñado por Pablo y Mario</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- PANEL DEL CARRITO DE COMPRA-->
+    <dialog class="cartel-carrito" aria-labelledby="cartel-carrito-titulo">
+
+        <h2 id="cartel-carrito-titulo">TU CARRITO</h2>
+
+        <p>Todavía no has añadido entradas.</p>
+
+        <a href="tickets.html" class="cartel-comprar">
+            VER ENTRADAS
+        </a>
+
+        <button class="cartel-carrito-cerrar" type="button">
+            Cerrar
+        </button>
+
+    </dialog>
+
+    <!-- CONFIRMACIÓN DEL FORMULARIO -->
+    <dialog class="cartel-confirmacion"
+        aria-labelledby="cartel-confirmacion-titulo">
+
+        <h2 id="cartel-confirmacion-titulo">¡FORMULARIO VALIDADO!</h2>
+
+        <p>
+            Los datos se han comprobado correctamente.
+        </p>
+
+        <button class="cartel-confirmacion-cerrar cartel-enviar" type="button">
+            ACEPTAR
+        </button>
+
+    </dialog>
+
+    <!-- ACCESO A FAQ Y CONTACTO -->
+    <a href="#cartel-ayuda" class="cartel-ayuda-btn" aria-label="Ir a preguntas frecuentes y contacto">?</a>
+
+    
+    <script src="js/mario.js"></script>
+</body>
+</html>
