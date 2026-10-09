@@ -620,7 +620,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 }
 
 .gallery-titulo-tarjeta {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.2;
@@ -742,7 +742,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 }
 
 .gallery-visor-titulo {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 2rem;
     margin: 10px 0;
     line-height: 1.2;
