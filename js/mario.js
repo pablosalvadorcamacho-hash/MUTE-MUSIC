@@ -337,16 +337,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tarjetasFotos.forEach((tarjeta, idx) => {
         tarjeta.addEventListener("click", () => abrirVisor(idx));
-    }
+    });
 
     botonSiguiente.addEventListener("click", () => {
         indiceActual = (indiceActual + 1) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    })
+    });
 
     botonAnterior.addEventListener("click", () => {
         indiceActual = (indiceActual - 1 + tarjetasFotos.length) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    })
- 
-}
+    });
+
+    // EVENTOS DE CIERRE AÑADIDOS:
+    if (botonCerrar) {
+        botonCerrar.addEventListener("click", cerrarVisor);
+    }
+
+    if (fondoVisor) {
+        fondoVisor.addEventListener("click", cerrarVisor);
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && visorModal.classList.contains("active")) {
+            cerrarVisor();
+        }
+    });
+    
+
+})

@@ -325,8 +325,8 @@
 }
 
 .cartel-horas-dj {
-    font-family: var(--fuente-titulo);
-    font-size: 24px;
+    font-family: var(--fuente-titulos);
+    font-size: 30px;
     letter-spacing: 0.5px;
     color: var(--color-texto);
     margin: 0;
@@ -1325,31 +1325,106 @@
         font-size: 12px;
     }
 
+    /* ==========================================================================
+       SECCIÓN GALERÍA Y MAPAS PARA MÓVIL (<= 530px)
+       ========================================================================== */
+    .gallery-principal {
+        padding: 20px 5% 40px;
+    }
+
+    .gallery-cabecera {
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+
     .gallery-titulo-principal {
         font-size: 2rem;
     }
 
+    /* MAPA */
+    .gallery-mapa-contenedor {
+        display: flex;
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .gallery-mapa-lienzo {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .gallery-mapa-lienzo img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .gallery-mapa-informacion {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    /* MAPA DE GOOGLE MAPS */
+    .gallery-gmaps-contenedor iframe {
+        height: 300px;
+    }
+
+    /* GALERÍA DE FOTOS */
     .gallery-rejilla-fotos {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr !important; /* Muestra las fotos de 1 en 1 */
+        gap: 20px;
     }
 
-    .gallery-visor-cuerpo {
-        grid-template-columns: 1fr;
+    .gallery-tarjeta-foto {
+        width: 100%;
+        aspect-ratio: 4 / 3;
     }
 
+    .gallery-titulo-tarjeta {
+        font-size: 1.05rem;
+    }
+
+    /* VISOR (Al pulsar en una foto) */
     .gallery-visor-contenido {
-        padding: 20px;
         width: 95%;
+        padding: 20px 15px;
         max-height: 90vh;
         overflow-y: auto;
     }
 
-    .gallery-visor-imagen-contenedor img {
-        max-height: 300px;
+    .gallery-visor-cuerpo {
+        display: grid;
+        grid-template-columns: 1fr; /* Foto arriba, detalles abajo */
+        gap: 20px;
     }
 
-    .gallery-mapa-lienzo {
-        min-height: 350px;
+    .gallery-visor-imagen-contenedor img {
+        max-height: 280px;
+    }
+
+    /* Ajuste de controles y botón cerrar */
+    .gallery-visor-anterior {
+        left: 10px;
+        top: 35%;
+        z-index: 25;
+        padding: 8px 12px;
+        font-size: 1.2rem;
+    }
+
+    .gallery-visor-siguiente {
+        right: 10px;
+        top: 35%;
+        z-index: 25;
+        padding: 8px 12px;
+        font-size: 1.2rem;
+    }
+
+    .gallery-visor-cerrar {
+        top: 10px;
+        right: 15px;
+        font-size: 1.8rem;
+        z-index: 30;
     }
 
 }
@@ -1443,34 +1518,36 @@ body {
 }
 
 .gallery-principal {
-    max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 5% 60px;
 }
 
 .gallery-seccion {
     margin-bottom: 70px;
+    border-top: 1px solid var(--color-borde);
 }
 
 /* ==========================================================================
    CABECERAS DE SECCIÓN
    ========================================================================== */
+.gallery-seccion:first-child {
+    border-top: none;
+    margin-top: 0;
+}
+
 .gallery-cabecera {
-    margin-bottom: 25px;
+    margin-top: 80px;
+    margin-bottom: 40px;
 }
 
 .gallery-etiqueta {
     font-size: 0.8rem;
-    color: #888888;
+    color: var(--color-acento);
+    font-family: var(--fuente-titulos);
     letter-spacing: 2px;
     font-weight: 600;
     margin-bottom: 8px;
     text-transform: uppercase;
-}
-
-.gallery-etiqueta .gallery-numero-etiqueta {
-    color: #ff3b30;
-    margin-right: 4px;
 }
 
 .gallery-fila-titulo {
@@ -1482,28 +1559,19 @@ body {
 }
 
 .gallery-titulo-principal {
-    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
+    font-family: var(--fuente-titulos);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1;
 }
 
-.gallery-subtitulo-ubicacion,
-.gallery-subtitulo-enlace {
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 /* ==========================================================================
    SECCIÓN 1: MAPA CONCEPTUAL INTERACTIVO
    ========================================================================== */
 .gallery-mapa-contenedor {
-    display: grid;
-    grid-template-columns: 2.2fr 1fr;
+    display: flex;
     gap: 20px;
     background-color: #121416;
     border: 1px solid #1f2226;
@@ -1577,24 +1645,9 @@ body {
     white-space: nowrap;
 }
 
-.gallery-punto-azul .gallery-icono-punto { background-color: #3b82f6; }
-.gallery-punto-rojo .gallery-icono-punto { background-color: #ef4444; }
-.gallery-punto-verde .gallery-icono-punto { background-color: #22c55e; }
-.gallery-punto-blanco .gallery-icono-punto { background-color: #e5e7eb; color: #000; }
-.gallery-punto-naranja .gallery-icono-punto { background-color: #f97316; }
-.gallery-punto-acceso .gallery-icono-punto { background-color: #ffffff; color: #000; }
-
-/* Posicionamiento en el mapa */
-.gallery-punto-azul { top: 20%; left: 30%; }
-.gallery-punto-rojo { top: 20%; left: 70%; }
-.gallery-punto-verde { top: 60%; left: 65%; }
-.gallery-punto-blanco { top: 40%; left: 48%; }
-.gallery-punto-naranja { top: 68%; left: 32%; }
-.gallery-punto-acceso { top: 55%; left: 18%; }
-
 /* Panel Lateral */
 .gallery-mapa-informacion {
-    padding: 35px 30px;
+    padding: 80px 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1603,22 +1656,22 @@ body {
 
 .gallery-etiqueta-info {
     font-size: 0.75rem;
-    color: #ff3b30;
+    color: var(--color-acento);
     letter-spacing: 1.5px;
     font-weight: 600;
 }
 
 .gallery-titulo-info {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--font-titulos);
     font-size: 2rem;
     margin-top: 5px;
     line-height: 1.1;
 }
 
 .gallery-descripcion-info {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: #999999;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .gallery-divisor-info {
@@ -1629,6 +1682,16 @@ body {
 
 .gallery-info-dinamica {
     min-height: 80px;
+}
+
+.gallery-info-dinamica h4{
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.gallery-info-dinamica p{
+margin-bottom: 14px;
+font-size: 1rem;
 }
 
 .gallery-titulo-punto {
@@ -1651,12 +1714,13 @@ body {
 
 .gallery-boton-principal {
     display: inline-block;
+    font-family: var(--fuente-titulos);
     text-align: center;
     padding: 14px 20px;
     border: 1px solid #333333;
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -1748,17 +1812,11 @@ body {
 
 .gallery-tarjeta-foto:hover .gallery-icono-tarjeta {
     transform: rotate(90deg);
-    color: #ff3b30;
-}
-
-.gallery-leyenda-pie {
-    font-size: 0.75rem;
-    color: #555555;
-    margin-top: 15px;
+    color: var(--color-acento);
 }
 
 /* ==========================================================================
-   VISOR MODAL (LIGHTBOX)
+   VISOR FOTOS
    ========================================================================== */
 .gallery-visor-modal {
     position: fixed;
@@ -1807,7 +1865,7 @@ body {
 }
 
 .gallery-visor-cerrar:hover {
-    color: #ff3b30;
+    color: var(--color-acento);
 }
 
 .gallery-visor-navegacion {
@@ -1847,7 +1905,7 @@ body {
 
 .gallery-visor-contador {
     font-size: 0.8rem;
-    color: #ff3b30;
+    color: var(--color-acento);
     font-weight: 600;
     letter-spacing: 2px;
 }
