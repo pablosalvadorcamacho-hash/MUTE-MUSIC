@@ -82,14 +82,14 @@ h1 {
 /* GRID DE ESCENARIOS */
 .cartel-grid-escenarios {
     display: none;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     margin-bottom: 25px;
 }
 
 .cartel-grid-escenarios h3 {
     font-family: var(--fuente-titulos);
-    font-size: 56px;
+    font-size: clamp(12px, calc(5vw - 12px), 56px);
     margin-bottom: 15px;
 }
 
@@ -100,7 +100,8 @@ h1 {
 /* Tarjetas individuales */
 .cartel-cuadro {
     border: 1px solid transparent;
-    padding: 24px;
+    padding: clamp(14px, 2.5vw, 24px);
+    overflow-wrap: break-word;
     display: flex;
     background-color: var(--color-superficie);
     flex-direction: column;
@@ -134,7 +135,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     font-family: var(--fuente-mono);
-    font-size: 11px;
+    font-size: clamp(9px, 1.2vw, 11px);
     letter-spacing: 1px;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -202,7 +203,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     font-family: var(--fuente-mono);
-    font-size: 11px;
+    font-size: clamp(9px, 1.2vw, 11px);
     margin-bottom: 6px;
 }
 
@@ -224,7 +225,7 @@ h1 {
 
 .cartel-horas-dj {
     font-family: var(--fuente-titulos);
-    font-size: 30px;
+    font-size: clamp(12px, calc(4.4vw - 10px), 30px);
     letter-spacing: 0.5px;
     color: var(--color-texto);
 }
@@ -442,21 +443,15 @@ CABECERAS DE SECCIÓN
 .gallery-mapa-lienzo {
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-mapa-lienzo img {
     display: block;
     width: 100%;
     height: auto;
-}
-
-.gallery-etiqueta-mapa-superior {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    font-size: 0.75rem;
-    color: #5a6660;
-    letter-spacing: 1.5px;
 }
 
 /* Panel Lateral */
@@ -572,7 +567,8 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 
 .gallery-rejilla-fotos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas -> 2 -> 1 solas, según el ancho (cada foto mide mínimo 230px) */
+    grid-template-columns: repeat(auto-fit, minmax(max(230px, calc((100% - 30px) / 3)), 1fr));
     gap: 15px;
 }
 
@@ -1481,6 +1477,65 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.8;
 }
 
+/* LOGO SECRETO DEL FOOTER
+   Símbolo de prohibido en una sola tinta: la del footer.
+   Es invisible hasta pasar el ratón; entonces se dibuja y queda grabado en relieve. */
+.footer-secreto {
+    --tinta: var(--color-superficie);
+    width: 96px;
+    margin-top: 28px;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.footer-secreto svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0))
+            drop-shadow(0 2px 3px rgba(0, 0, 0, 0));
+    transition: filter 0.8s ease 0.3s;
+}
+
+/* oculto: sin trazo y con el mismo color que el footer */
+.footer-secreto .fs-anillo,
+.footer-secreto .fs-barra {
+    fill: none;
+    stroke: var(--tinta);
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-dasharray: 1.03 2;
+    stroke-dashoffset: 1;
+    opacity: 0;
+    transition: stroke-dashoffset 0.35s ease, opacity 0.25s ease;
+}
+
+/* descubierto: se dibuja el aro, luego la barra, y queda en relieve */
+.footer-secreto:hover svg,
+.footer-secreto.activo svg {
+    filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.45))
+            drop-shadow(0 2px 3px rgba(0, 0, 0, 0.7));
+}
+
+.footer-secreto:hover .fs-anillo,
+.footer-secreto.activo .fs-anillo,
+.footer-secreto:hover .fs-barra,
+.footer-secreto.activo .fs-barra {
+    stroke-dashoffset: 0;
+    opacity: 1;
+}
+
+.footer-secreto:hover .fs-anillo,
+.footer-secreto.activo .fs-anillo {
+    transition: stroke-dashoffset 0.9s ease, opacity 0.3s ease;
+}
+
+.footer-secreto:hover .fs-barra,
+.footer-secreto.activo .fs-barra {
+    transition: stroke-dashoffset 0.5s ease 0.7s, opacity 0.2s ease 0.7s;
+}
+
 .home-footer-nav ul,
 .cartel-footer-nav ul {
     display: flex;
@@ -1921,6 +1976,19 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         padding: 20px;
     }
 
+    .cartel-grid-escenarios h3 {
+        font-size: 56px;
+    }
+
+    .cartel-cuadro-header,
+    .cartel-bloque-meta {
+        font-size: 11px;
+    }
+
+    .cartel-horas-dj {
+        font-size: 30px;
+    }
+
     .cartel-carrito {
         width: 90vw;
         max-width: 100%;
@@ -1929,7 +1997,8 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 
     .cartel-tickets {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 25px;
         padding: 35px 20px;
     }
@@ -1945,6 +2014,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 
     .cartel-comprar {
         width: 100%;
+        max-width: 360px;
         padding: 16px 20px;
         font-size: 12px;
     }
@@ -2169,6 +2239,11 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     .home-footer-redes,
     .cartel-footer-redes {
         justify-content: center;
+    }
+
+    .footer-secreto {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .tickets-main {

@@ -596,6 +596,22 @@ if (pagarCarrito && ventanaCarrito) {
 }
 
 
+// LOGO SECRETO DEL FOOTER (en el móvil se descubre al tocarlo)
+var logoSecreto = document.querySelector(".footer-secreto");
+
+if (logoSecreto) {
+
+    logoSecreto.addEventListener("pointerdown", function (evento) {
+
+        if (evento.pointerType === "touch") {
+            logoSecreto.classList.toggle("activo");
+        }
+
+    })
+
+}
+
+
 // SELECCIÓN DE DÍAS (PESTAÑAS DEL CARTEL)
 var botonesDia = document.querySelectorAll(".cartel-tab-btn");
 var gridsDia = document.querySelectorAll(".cartel-grid-escenarios");
@@ -610,11 +626,11 @@ if (botonesDia.length > 0 && gridsDia.length > 0) {
 
             botonesDia.forEach(function (b) {
                 b.classList.remove("active");
-            })
+            });
 
             gridsDia.forEach(function (grid) {
                 grid.classList.remove("active");
-            })
+            });
 
             boton.classList.add("active");
 
@@ -623,12 +639,16 @@ if (botonesDia.length > 0 && gridsDia.length > 0) {
                 gridObjetivo.classList.add("active");
             }
 
-        })
+        });
 
-    })
+    });
 
 }
 
+
+////////////////////////////
+/////////* GALLERY *////////
+////////////////////////////
 
 // VISOR DE FOTOS (9 FOTOS)
 var tarjetasFotos = document.querySelectorAll(".gallery-tarjeta-foto");
@@ -682,7 +702,7 @@ if (visorModal && tarjetasFotos.length > 0) {
             title: "HASTA QUE VUELVA A SALIR EL SOL.",
             desc: "Los momentos finales de una velada inolvidable. La comunidad unida celebrando la música electrónica hasta el amanecer."
         }
-    ]
+    ];
 
     var indiceActual = 0;
 
@@ -713,18 +733,18 @@ if (visorModal && tarjetasFotos.length > 0) {
     tarjetasFotos.forEach(function (tarjeta, indice) {
         tarjeta.addEventListener("click", function () {
             abrirVisor(indice);
-        })
-    })
+        });
+    });
 
     botonSiguiente.addEventListener("click", function () {
         indiceActual = (indiceActual + 1) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    })
+    });
 
     botonAnterior.addEventListener("click", function () {
         indiceActual = (indiceActual - 1 + tarjetasFotos.length) % tarjetasFotos.length;
         actualizarContenidoVisor();
-    })
+    });
 
     botonCerrar.addEventListener("click", cerrarVisor);
     fondoVisor.addEventListener("click", cerrarVisor);
@@ -733,6 +753,6 @@ if (visorModal && tarjetasFotos.length > 0) {
         if (evento.key === "Escape" && visorModal.classList.contains("active")) {
             cerrarVisor();
         }
-    })
+    });
 
 }
