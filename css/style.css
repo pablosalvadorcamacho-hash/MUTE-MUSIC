@@ -12,6 +12,19 @@
 
     --fuente-texto: Arial, Helvetica, sans-serif;
     --fuente-titulos: "Iosevka Charon", monospace;
+
+    /* VARIABLES ADICIONALES */
+    --color-azul-borde: #0070f3;
+    --color-rojo-borde: #ff0000;
+    --color-verde-borde: #00ff00;
+
+    --color-azul-acento: #4da6ff;
+    --color-rojo-acento: #ff6666;
+    --color-verde-acento: #66ff66;
+
+    --fuente-titulo: "Iosevka Charon", monospace;
+    --fuente-mono: "Iosevka Charon", monospace;
+    --font-titulos: "Iosevka Charon", monospace;
 }
 
 /* =========================================================
