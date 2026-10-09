@@ -1478,12 +1478,11 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 }
 
 /* LOGO SECRETO DEL FOOTER
-   Símbolo de prohibido en una sola tinta: la del footer.
-   Es invisible hasta pasar el ratón; entonces se dibuja y queda grabado en relieve. */
+   Símbolo de prohibido plano: del mismo color que el footer (no se ve)
+   y al pasar el ratón por encima cambia de color. */
 .footer-secreto {
-    --tinta: var(--color-superficie);
     width: 96px;
-    margin-top: 28px;
+    margin: 28px auto 0;
     cursor: default;
     -webkit-tap-highlight-color: transparent;
 }
@@ -1492,48 +1491,22 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     display: block;
     width: 100%;
     height: auto;
-    overflow: visible;
-    filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0))
-            drop-shadow(0 2px 3px rgba(0, 0, 0, 0));
-    transition: filter 0.8s ease 0.3s;
 }
 
-/* oculto: sin trazo y con el mismo color que el footer */
 .footer-secreto .fs-anillo,
 .footer-secreto .fs-barra {
     fill: none;
-    stroke: var(--tinta);
+    stroke: var(--color-superficie);
     stroke-width: 9;
     stroke-linecap: round;
-    stroke-dasharray: 1.03 2;
-    stroke-dashoffset: 1;
-    opacity: 0;
-    transition: stroke-dashoffset 0.35s ease, opacity 0.25s ease;
-}
-
-/* descubierto: se dibuja el aro, luego la barra, y queda en relieve */
-.footer-secreto:hover svg,
-.footer-secreto.activo svg {
-    filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.45))
-            drop-shadow(0 2px 3px rgba(0, 0, 0, 0.7));
+    transition: stroke 0.4s ease;
 }
 
 .footer-secreto:hover .fs-anillo,
+.footer-secreto:hover .fs-barra,
 .footer-secreto.activo .fs-anillo,
-.footer-secreto:hover .fs-barra,
 .footer-secreto.activo .fs-barra {
-    stroke-dashoffset: 0;
-    opacity: 1;
-}
-
-.footer-secreto:hover .fs-anillo,
-.footer-secreto.activo .fs-anillo {
-    transition: stroke-dashoffset 0.9s ease, opacity 0.3s ease;
-}
-
-.footer-secreto:hover .fs-barra,
-.footer-secreto.activo .fs-barra {
-    transition: stroke-dashoffset 0.5s ease 0.7s, opacity 0.2s ease 0.7s;
+    stroke: var(--color-acento);
 }
 
 .home-footer-nav ul,
