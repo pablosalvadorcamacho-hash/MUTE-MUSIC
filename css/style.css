@@ -12,161 +12,33 @@
 
     --fuente-texto: Arial, Helvetica, sans-serif;
     --fuente-titulos: "Iosevka Charon", monospace;
-
 }
 
-
-
-/* cartel */
-.cartel-body,
-.cartel-body * {
+/* =========================================================
+   BASE (todas las páginas)
+   ========================================================= */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.cartel-body {
+body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: var(--fuente-texto);
+    line-height: 1.5;
 }
 
-.cartel-body h1 {
+h1 {
     font-family: var(--fuente-titulos);
     font-weight: 700;
 }
 
-/* HEADER */
-.cartel-header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-
-    padding: 20px 5%;
-    background-color: var(--color-fondo);
-}
-
-
-/* LOGO */
-.cartel-header .logo {
-    margin-right: auto;
-    flex-shrink: 0;
-}
-
-.cartel-header .logo img {
-    display: block;
-    width: 90px;
-    height: auto;
-}
-
-
-/* MENU */
-.cartel-nav .menu {
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-    list-style: none;
-}
-
-.cartel-nav a {
-    color: var(--color-texto);
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-
-    transition: color 0.2s ease;
-}
-
-.cartel-nav a:hover {
-    color: var(--color-acento);
-}
-
-
-/* BOTÓN DE ENTRADAS */
-.cartel-header .btn-tickets {
-    display: inline-block;
-    padding: 12px 22px;
-
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
-
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.cartel-header .btn-tickets:hover {
-    background-color: var(--color-amarillo);
-    color: var(--color-fondo);
-}
-
-.cartel-tickets-mobile {
-    display: none;
-}
-
-
-/* BOTÓN DEL MENÚ: OCULTO EN ESCRITORIO */
-.cartel-menu-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-
-    width: 44px;
-    height: 44px;
-    padding: 10px;
-    flex-shrink: 0;
-
-    border: none;
-    background: transparent;
-    color: var(--color-texto);
-    cursor: pointer;
-
-    transition: color 0.2s ease;
-}
-
-.cartel-menu-btn span {
-    display: block;
-    width: 24px;
-    height: 2px;
-
-    background-color: currentColor;
-    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
-}
-
-.cartel-menu-btn:hover {
-    color: var(--color-acento);
-}
-
-
-/* HAMBURGUESA CONVERTIDO EN X */
-.cartel-menu-btn.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.cartel-menu-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.cartel-menu-btn.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-
-/* PORTADA */
 .cartel-dias {
     padding: 70px 5% 60px;
     border: 1px solid var(--color-borde);
- }
+}
 
 .cartel-seleccion {
     display: inline-flex;
@@ -245,10 +117,12 @@
     background-color: var(--color-azul-bg);
     border-color: var(--color-azul-borde);
 }
+
 .cartel-cuadro.escenario-rojo {
     background-color: var(--color-rojo-bg);
     border-color: var(--color-rojo-borde);
 }
+
 .cartel-cuadro.escenario-verde {
     background-color: var(--color-verde-bg);
     border-color: var(--color-verde-borde);
@@ -266,9 +140,17 @@
     text-transform: uppercase;
 }
 
-.escenario-azul .cartel-cuadro-header { color: var(--color-azul-acento); }
-.escenario-rojo .cartel-cuadro-header { color: var(--color-rojo-acento); }
-.escenario-verde .cartel-cuadro-header { color: var(--color-verde-acento); }
+.escenario-azul .cartel-cuadro-header {
+    color: var(--color-azul-acento);
+}
+
+.escenario-rojo .cartel-cuadro-header {
+    color: var(--color-rojo-acento);
+}
+
+.escenario-verde .cartel-cuadro-header {
+    color: var(--color-verde-acento);
+}
 
 .cartel-icono-cascos {
     width: 16px;
@@ -286,9 +168,17 @@
     font-weight: normal;
 }
 
-.escenario-azul .cartel-cuadro-titulo { color: var(--color-azul-acento); }
-.escenario-rojo .cartel-cuadro-titulo { color: var(--color-rojo-acento); }
-.escenario-verde .cartel-cuadro-titulo { color: var(--color-verde-acento); }
+.escenario-azul .cartel-cuadro-titulo {
+    color: var(--color-azul-acento);
+}
+
+.escenario-rojo .cartel-cuadro-titulo {
+    color: var(--color-rojo-acento);
+}
+
+.escenario-verde .cartel-cuadro-titulo {
+    color: var(--color-verde-acento);
+}
 
 .cartel-cuadro-genero {
     font-size: 12px;
@@ -316,9 +206,17 @@
     margin-bottom: 6px;
 }
 
-.escenario-azul .cartel-bloque-meta .hora { color: var(--color-azul-acento); }
-.escenario-rojo .cartel-bloque-meta .hora { color: var(--color-rojo-acento); }
-.escenario-verde .cartel-bloque-meta .hora { color: var(--color-verde-acento); }
+.escenario-azul .cartel-bloque-meta .hora {
+    color: var(--color-azul-acento);
+}
+
+.escenario-rojo .cartel-bloque-meta .hora {
+    color: var(--color-rojo-acento);
+}
+
+.escenario-verde .cartel-bloque-meta .hora {
+    color: var(--color-verde-acento);
+}
 
 .cartel-dias-set {
     color: var(--color-secundario);
@@ -329,7 +227,6 @@
     font-size: 30px;
     letter-spacing: 0.5px;
     color: var(--color-texto);
-    margin: 0;
 }
 
 /* Información adicional inferior */
@@ -337,7 +234,7 @@
     font-size: 11px;
 }
 
-.cartel-cuadro-footer img{
+.cartel-cuadro-footer img {
     display: block;
     width: 100%;
     height: auto;
@@ -362,69 +259,18 @@
     line-height: 1.4;
 }
 
-/* Nota legal */
-.cartel-legales {
-    font-family: var(--fuente-mono);
-    font-size: 10px;
-    color: var(--color-secundario);
-    letter-spacing: 0.5px;
-}
-
-
-/* EXPERIENCIA Y CANALES */
-.cartel-experiencia {
-    padding: 70px 5%;
-}
-
 #cartel-experiencia {
     background-color: var(--color-borde);
-}
-
-.cartel-experiencia-etiqueta {
-    color: var(--color-acento);
-    font-family: var(--fuente-titulos);
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.cartel-experiencia h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 42px;
-    line-height: 1.1;
-    margin-bottom: 20px;
 }
 
 .cartel-experiencia-intro {
     color: var(--color-texto);
     line-height: 1.6;
-    margin-bottom: 35px;
-}
-
-.cartel-canales {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.cartel-canal {
-    flex: 1;
-    min-width: 220px;
-    padding: 30px 20px;
-    border: 1px solid var(--color-borde);
-
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: var(--fuente-titulos);
-    text-align: left;
-
-    cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.cartel-canal span {
-    display: block;
-    font-size: 14px;
-    color: var(--color-secundario);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .cartel-canal img {
@@ -432,26 +278,6 @@
     width: 30%;
     height: auto;
     margin: 0 auto 15px;
-}
-
-.cartel-canal strong {
-    display: block;
-    font-size: 24px;
-    margin: 25px 0 12px;
-}
-
-.cartel-canal:hover,
-.cartel-canal.active {
-    border-color: var(--color-acento);
-    background-color: var(--color-superficie);
-}
-
-.cartel-canal-descripcion {
-    margin-top: 25px;
-    padding: 20px;
-    border-left: 3px solid var(--color-acento);
-    color: var(--color-secundario);
-    line-height: 1.6;
 }
 
 .cartel-canal-cascos-descripcion {
@@ -464,7 +290,8 @@
 #canal-01:hover {
     border-color: #0070f3;
     box-shadow: 0 0 15px rgba(0, 112, 243, 0.6);
-    background-color: var(--color-azul-bg);}
+    background-color: var(--color-azul-bg);
+}
 
 /* Canal 02 - Iluminación en rojo */
 #canal-02:hover {
@@ -480,116 +307,8 @@
     background-color: var(--color-verde-bg);
 }
 
-/* BOTÓN DEL CARRO */
-.cartel-carrito-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-
-    border: none;
-    background: transparent;
-    color: var(--color-texto);
-    cursor: pointer;
-
-    transition: color 0.2s ease;
-}
-
-.cartel-carrito-btn:hover {
-    color: var(--color-acento);
-}
-
-.cartel-carrito-btn svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-    overflow: visible;
-}
-
-/* VENTANA DEL CARRO */
-.cartel-carrito {
-    margin: auto;
-    width: 90%;
-    max-width: 420px;
-    padding: 30px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-}
-
-.cartel-carrito::backdrop {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.cartel-carrito h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 30px;
-    margin-bottom: 20px;
-}
-
-.cartel-carrito p {
-    color: var(--color-secundario);
-    line-height: 1.5;
-    margin-bottom: 25px;
-}
-
-.cartel-carrito-cerrar {
-    display: block;
-    margin-top: 20px;
-    border: none;
-
-    background: transparent;
-    color: var(--color-texto);
-
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-    text-decoration: underline;
-
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.cartel-carrito-cerrar:hover {
-    color: var(--color-acento);
-}
-
-
-/* BOTÓN FLOTANTE DE AYUDA */
-.cartel-ayuda-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
-    font-family: var(--fuente-titulos);
-    font-size: 28px;
-    font-weight: 700;
-    text-decoration: none;
-
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.cartel-ayuda-btn:hover {
-    background-color: var(--color-amarillo);
-    transform: translateY(-3px);
-}
-
 /* ANIMACIÓN FLOTANTE POP-UP CARRO */
-@keyframes cartel-carrito-entrada {
+@keyframes carrito-entrada {
     from {
         opacity: 0;
         transform: translateY(15px);
@@ -601,7 +320,7 @@
     }
 }
 
-@keyframes cartel-fondo-entrada {
+@keyframes fondo-entrada {
     from {
         opacity: 0;
     }
@@ -611,349 +330,6 @@
     }
 }
 
-.cartel-carrito[open] {
-    animation: cartel-carrito-entrada 0.25s ease-out;
-}
-
-.cartel-carrito[open]::backdrop {
-    animation: cartel-fondo-entrada 0.25s ease-out;
-}
-
-
-/* PREVIEW DE CARTEL Y GALERÍA */
-.cartel-avance {
-    display: flex;
-    align-items: center;
-    gap: 7%;
-    padding: 70px 5%;
-    border-top: 1px solid var(--color-borde);
-}
-
-.cartel-avance-numero {
-    font-family: var(--fuente-titulos);
-    font-size: 14vw;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-acento);
-}
-
-.cartel-avance-contenido {
-    flex: 1;
-    min-width: 0;
-}
-
-.cartel-avance-etiqueta {
-    font-family: var(--fuente-titulos);
-    font-size: 14px;
-    color: var(--color-acento);
-    margin-bottom: 15px;
-}
-
-.cartel-avance h2 {
-    font-family: var(--fuente-titulos);
-    font-size: 42px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.cartel-avance-texto {
-    max-width: 550px;
-    color: var(--color-secundario);
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.cartel-avance-enlace {
-    display: inline-block;
-    padding: 15px 20px;
-    border: 1px solid var(--color-acento);
-
-    color: var(--color-acento);
-
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-    font-weight: 700;
-
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.cartel-avance-enlace:hover {
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
-}
-
-.cartel-avance-galeria {
-    background-color: var(--color-superficie);
-}
-
-/* FAQ Y CONTACTO */
-.cartel-ayuda {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-
-    padding: 70px 5%;
-    border-top: 1px solid var(--color-borde);
-    scroll-margin-top: 130px;
-}
-
-.cartel-faq,
-.cartel-contacto {
-    flex: 1;
-    min-width: 280px;
-}
-
-.cartel-ayuda-etiqueta {
-    margin-bottom: 15px;
-    color: var(--color-acento);
-    font-family: var(--fuente-titulos);
-    font-size: 14px;
-}
-
-.cartel-ayuda h2 {
-    margin-bottom: 25px;
-    font-family: var(--fuente-titulos);
-    font-size: 32px;
-    line-height: 1.2;
-}
-
-
-/* PREGUNTAS */
-.cartel-faq details {
-    border-bottom: 1px solid var(--color-borde);
-    overflow: hidden;
-}
-
-.cartel-faq summary {
-    padding: 20px 0;
-
-    font-family: var(--fuente-titulos);
-    font-size: 18px;
-
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.cartel-faq summary:hover,
-.cartel-faq details[open] summary {
-    color: var(--color-acento);
-}
-
-.cartel-faq details p {
-    padding-bottom: 20px;
-    color: var(--color-secundario);
-    line-height: 1.6;
-}
-
-.cartel-faq details[open] p {
-    animation: cartel-faq-entrada 0.25s ease;
-}
-
-/* FORMULARIO */
-.cartel-contacto-intro {
-    margin-bottom: 25px;
-    color: var(--color-secundario);
-    line-height: 1.6;
-}
-
-.cartel-formulario {
-    display: flex;
-    flex-direction: column;
-}
-
-.cartel-formulario label {
-    margin-bottom: 8px;
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-}
-
-.cartel-formulario input,
-.cartel-formulario textarea {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 14px;
-
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-superficie);
-    color: var(--color-texto);
-
-    font-family: var(--fuente-texto);
-    font-size: 16px;
-}
-
-.cartel-formulario textarea {
-    resize: vertical;
-}
-
-.cartel-formulario input:focus,
-.cartel-formulario textarea:focus {
-    outline: 2px solid var(--color-acento);
-    outline-offset: 2px;
-}
-
-.cartel-enviar {
-    align-self: flex-start;
-    padding: 16px 24px;
-    border: none;
-
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
-
-    font-family: var(--fuente-titulos);
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.cartel-enviar:hover {
-    background-color: var(--color-amarillo);
-}
-
-.cartel-formulario-aviso {
-    margin-top: 15px;
-    color: var(--color-secundario);
-    line-height: 1.5;
-}
-
-
-/* CONFIRMACIÓN DEL FORMULARIO */
-.cartel-confirmacion {
-    margin: auto;
-    width: 90%;
-    max-width: 420px;
-    padding: 30px;
-
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-}
-
-.cartel-confirmacion h2 {
-    margin-bottom: 20px;
-    font-family: var(--fuente-titulos);
-    font-size: 30px;
-}
-
-.cartel-confirmacion p {
-    margin-bottom: 25px;
-    color: var(--color-secundario);
-    line-height: 1.6;
-}
-
-.cartel-confirmacion::backdrop {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.cartel-confirmacion[open] {
-    animation: cartel-carrito-entrada 0.25s ease-out;
-}
-
-.cartel-confirmacion[open]::backdrop {
-    animation: cartel-fondo-entrada 0.25s ease-out;
-}
-
-
-/* FOOTER */
-.cartel-footer {
-    padding: 50px 5% 90px;
-    border-top: 1px solid var(--color-borde);
-    background-color: var(--color-superficie);
-    font-family: var(--fuente-titulos);
-}
-
-.cartel-footer-contenido {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 35px;
-}
-
-.cartel-footer-marca img {
-    display: block;
-    width: 90px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.cartel-footer-marca p {
-    color: var(--color-secundario);
-    font-size: 14px;
-}
-
-.cartel-footer-info {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-.cartel-footer-nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    list-style: none;
-}
-
-.cartel-footer-nav a {
-    color: var(--color-texto);
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.cartel-footer-nav a:hover {
-    color: var(--color-acento);
-}
-
-.cartel-footer-creditos {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-
-    margin-top: 85px;
-    padding-top: 20px;
-    border-top: 1px solid var(--color-borde);
-
-    color: var(--color-secundario);
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-
-/* REDES SOCIALES */
-.cartel-footer-redes {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.cartel-footer-redes a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-
-    width: 40px;
-    height: 40px;
-
-    color: var(--color-texto);
-    transition: color 0.2s ease;
-}
-
-.cartel-footer-redes a:hover {
-    color: var(--color-acento);
-}
-
-.cartel-footer-redes i {
-    font-size: 22px;
-}
-
-
-
-
 .cartel-tickets {
     background-color: var(--color-acento);
     color: #000000;
@@ -962,7 +338,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    box-sizing: border-box;
     font-family: sans-serif;
 }
 
@@ -971,21 +346,12 @@
     flex-direction: column;
 }
 
-.cartel-experiencia-intro {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
 .cartel-tickets h2 {
     font-family: var(--fuente-titulos);
     font-size: 52px;
     font-weight: 900;
     letter-spacing: 1px;
     line-height: 1;
-    margin: 0;
     text-transform: uppercase;
 }
 
@@ -1011,23 +377,6 @@
     transform: translateY(-2px);
 }
 
-
-/* ==========================================================================
-GALLERY 
-==========================================================================*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    line-height: 1.5;
-}
-
 .gallery-principal {
     margin: 0 auto;
     padding: 40px 5% 60px;
@@ -1041,6 +390,7 @@ body {
 /* ==========================================================================
 CABECERAS DE SECCIÓN
    ========================================================================== */
+
 .gallery-seccion:first-child {
     border-top: none;
     margin-top: 0;
@@ -1081,6 +431,7 @@ CABECERAS DE SECCIÓN
 /* ==========================================================================
    SECCIÓN 1: MAPA CONCEPTUAL INTERACTIVO
    ========================================================================== */
+
 .gallery-mapa-contenedor {
     display: flex;
     gap: 20px;
@@ -1106,54 +457,6 @@ CABECERAS DE SECCIÓN
     font-size: 0.75rem;
     color: #5a6660;
     letter-spacing: 1.5px;
-}
-
-.gallery-orientacion-mapa {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 0.8rem;
-    color: #5a6660;
-}
-
-/* Puntos de interés */
-.gallery-punto-interes {
-    position: absolute;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-.gallery-punto-interes:hover,
-.gallery-punto-interes.active {
-    transform: scale(1.15);
-}
-
-.gallery-icono-punto {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    margin-bottom: 6px;
-}
-
-.gallery-nombre-punto {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: rgba(0,0,0,0.7);
-    padding: 2px 6px;
-    border-radius: 3px;
-    white-space: nowrap;
 }
 
 /* Panel Lateral */
@@ -1195,14 +498,14 @@ CABECERAS DE SECCIÓN
     min-height: 80px;
 }
 
-.gallery-info-dinamica h4{
+.gallery-info-dinamica h4 {
     font-size: 1.5rem;
     margin-bottom: 16px;
 }
 
-.gallery-info-dinamica p{
-margin-bottom: 14px;
-font-size: 1rem;
+.gallery-info-dinamica p {
+    margin-bottom: 14px;
+    font-size: 1rem;
 }
 
 .gallery-titulo-punto {
@@ -1246,6 +549,7 @@ font-size: 1rem;
 /* ==========================================================================
    SECCIÓN 2: GOOGLE MAPS EMBED
    ========================================================================== */
+
 .gallery-gmaps-contenedor {
     width: 100%;
     border: 1px solid #1f2226;
@@ -1265,6 +569,7 @@ font-size: 1rem;
 /* ==========================================================================
 SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 ========================================================================== */
+
 .gallery-rejilla-fotos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1329,6 +634,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 /* ==========================================================================
    VISOR FOTOS
    ========================================================================== */
+
 .gallery-visor-modal {
     position: fixed;
     inset: 0;
@@ -1397,8 +703,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     color: #000000;
 }
 
-.gallery-visor-anterior { left: -60px; }
-.gallery-visor-siguiente { right: -60px; }
+.gallery-visor-anterior {
+    left: -60px;
+}
+
+.gallery-visor-siguiente {
+    right: -60px;
+}
 
 .gallery-visor-cuerpo {
     display: grid;
@@ -1434,37 +745,14 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.6;
 }
 
-
-
-
-
-
-
-
-
-
-/* HOME */
-.home-body,
-.home-body * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.home-body {
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: var(--fuente-texto);
-}
-
-.home-body h1 {
-    font-family: var(--fuente-titulos);
-    font-weight: 700;
-}
-
+/* =========================================================
+   COMPARTIDO: header, menú, carrito, FAQ, formulario, footer
+   (clases home-* y cartel-* agrupadas en la misma regla)
+   ========================================================= */
 
 /* HEADER */
-.home-header {
+.home-header,
+.cartel-header {
     position: sticky;
     top: 0;
     z-index: 20;
@@ -1472,96 +760,102 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     display: flex;
     align-items: center;
     gap: 2vw;
-    
+
     padding: 20px 5%;
     background-color: var(--color-fondo);
 }
 
-
 /* LOGO */
-.home-header .logo {
+.home-header .logo,
+.cartel-header .logo {
     margin-right: auto;
     flex-shrink: 0;
 }
 
-.home-header .logo img {
+.home-header .logo img,
+.cartel-header .logo img {
     display: block;
     width: 90px;
     height: auto;
 }
 
-
 /* MENU */
-.home-nav .menu {
+.home-nav .menu,
+.cartel-nav .menu {
     display: flex;
     align-items: center;
     gap: 2vw;
     list-style: none;
 }
 
-.home-nav a {
+.home-nav a,
+.cartel-nav a {
     color: var(--color-texto);
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
-    
+
     transition: color 0.2s ease;
 }
 
-.home-nav a:hover {
+.home-nav a:hover,
+.cartel-nav a:hover {
     color: var(--color-acento);
 }
 
-
 /* BOTÓN DE ENTRADAS */
-.home-header .btn-tickets {
+.home-header .btn-tickets,
+.cartel-header .btn-tickets {
     display: inline-block;
     padding: 12px 22px;
 
     background-color: var(--color-acento);
     color: var(--color-fondo);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
-    
+
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.home-header .btn-tickets:hover {
+.home-header .btn-tickets:hover,
+.cartel-header .btn-tickets:hover {
     background-color: var(--color-amarillo);
     color: var(--color-fondo);
 }
 
-.home-tickets-mobile {
+.home-tickets-mobile,
+.cartel-tickets-mobile {
     display: none;
 }
 
-
 /* BOTÓN DEL MENÚ: OCULTO EN ESCRITORIO */
-.home-menu-btn {
+.home-menu-btn,
+.cartel-menu-btn {
     display: none;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    
+
     width: 44px;
     height: 44px;
     padding: 10px;
     flex-shrink: 0;
-    
+
     border: none;
     background: transparent;
     color: var(--color-texto);
     cursor: pointer;
-    
+
     transition: color 0.2s ease;
 }
 
-.home-menu-btn span {
+.home-menu-btn span,
+.cartel-menu-btn span {
     display: block;
     width: 24px;
     height: 2px;
@@ -1570,24 +864,26 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
-.home-menu-btn:hover {
+.home-menu-btn:hover,
+.cartel-menu-btn:hover {
     color: var(--color-acento);
 }
 
-
 /* HAMBURGUESA CONVERTIDO EN X */
-.home-menu-btn.active span:nth-child(1) {
+.home-menu-btn.active span:nth-child(1),
+.cartel-menu-btn.active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
 
-.home-menu-btn.active span:nth-child(2) {
+.home-menu-btn.active span:nth-child(2),
+.cartel-menu-btn.active span:nth-child(2) {
     opacity: 0;
 }
 
-.home-menu-btn.active span:nth-child(3) {
+.home-menu-btn.active span:nth-child(3),
+.cartel-menu-btn.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
-
 
 /* PORTADA */
 .home-portada {
@@ -1599,7 +895,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     url(../media/img/portada.png);
     background-size: cover;
     background-position: center;
- }
+}
 
 .home-portada-info {
     display: flex;
@@ -1648,22 +944,21 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 .home-comprar {
     display: inline-block;
     padding: 16px 24px;
-    
+
     background-color: var(--color-acento);
     color: var(--color-fondo);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
-    
+
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .home-comprar:hover {
     background-color: var(--color-amarillo);
 }
-
 
 /* INFO DEL FESTIVAL */
 .home-datos {
@@ -1692,20 +987,22 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     font-size: 16px;
 }
 
-
 /* EXPERIENCIA Y CANALES */
-.home-experiencia {
+.home-experiencia,
+.cartel-experiencia {
     padding: 70px 5%;
 }
 
-.home-experiencia-etiqueta {
+.home-experiencia-etiqueta,
+.cartel-experiencia-etiqueta {
     color: var(--color-acento);
     font-family: var(--fuente-titulos);
     font-size: 14px;
     margin-bottom: 15px;
 }
 
-.home-experiencia h2 {
+.home-experiencia h2,
+.cartel-experiencia h2 {
     font-family: var(--fuente-titulos);
     font-size: 42px;
     line-height: 1.1;
@@ -1718,46 +1015,53 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     margin-bottom: 35px;
 }
 
-.home-canales {
+.home-canales,
+.cartel-canales {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.home-canal {
+.home-canal,
+.cartel-canal {
     flex: 1;
     min-width: 220px;
     padding: 30px 20px;
     border: 1px solid var(--color-borde);
-    
+
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: var(--fuente-titulos);
     text-align: left;
-    
+
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.home-canal span {
+.home-canal span,
+.cartel-canal span {
     display: block;
     font-size: 14px;
     color: var(--color-secundario);
 }
 
-.home-canal strong {
+.home-canal strong,
+.cartel-canal strong {
     display: block;
     font-size: 24px;
     margin: 25px 0 12px;
 }
 
 .home-canal:hover,
-.home-canal.active {
+.home-canal.active,
+.cartel-canal:hover,
+.cartel-canal.active {
     border-color: var(--color-acento);
     background-color: var(--color-superficie);
 }
 
-.home-canal-descripcion {
+.home-canal-descripcion,
+.cartel-canal-descripcion {
     margin-top: 25px;
     padding: 20px;
     border-left: 3px solid var(--color-acento);
@@ -1765,30 +1069,32 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.6;
 }
 
-
 /* BOTÓN DEL CARRO */
-.home-carrito-btn {
+.home-carrito-btn,
+.cartel-carrito-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     width: 44px;
     height: 44px;
     flex-shrink: 0;
-    
+
     border: none;
     background: transparent;
     color: var(--color-texto);
     cursor: pointer;
-    
+
     transition: color 0.2s ease;
 }
 
-.home-carrito-btn:hover {
+.home-carrito-btn:hover,
+.cartel-carrito-btn:hover {
     color: var(--color-acento);
 }
 
-.home-carrito-btn svg {
+.home-carrito-btn svg,
+.cartel-carrito-btn svg {
     display: block;
     width: 24px;
     height: 24px;
@@ -1797,7 +1103,8 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 }
 
 /* VENTANA DEL CARRO */
-.home-carrito {
+.home-carrito,
+.cartel-carrito {
     margin: auto;
     width: 90%;
     max-width: 420px;
@@ -1807,45 +1114,50 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     color: var(--color-texto);
 }
 
-.home-carrito::backdrop {
+.home-carrito::backdrop,
+.cartel-carrito::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.home-carrito h2 {
+.home-carrito h2,
+.cartel-carrito h2 {
     font-family: var(--fuente-titulos);
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.home-carrito p {
+.home-carrito p,
+.cartel-carrito p {
     color: var(--color-secundario);
     line-height: 1.5;
     margin-bottom: 25px;
 }
 
-.home-carrito-cerrar {
+.home-carrito-cerrar,
+.cartel-carrito-cerrar {
     display: block;
     margin-top: 20px;
     border: none;
 
     background: transparent;
     color: var(--color-texto);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     text-decoration: underline;
-    
+
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
-.home-carrito-cerrar:hover {
+.home-carrito-cerrar:hover,
+.cartel-carrito-cerrar:hover {
     color: var(--color-acento);
 }
 
-
 /* BOTÓN FLOTANTE DE AYUDA */
-.home-ayuda-btn {
+.home-ayuda-btn,
+.cartel-ayuda-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -1854,57 +1166,36 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    
+
     background-color: var(--color-acento);
     color: var(--color-fondo);
     font-family: var(--fuente-titulos);
     font-size: 28px;
     font-weight: 700;
     text-decoration: none;
-    
+
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.home-ayuda-btn:hover {
+.home-ayuda-btn:hover,
+.cartel-ayuda-btn:hover {
     background-color: var(--color-amarillo);
     transform: translateY(-3px);
 }
 
-/* ANIMACIÓN FLOTANTE POP-UP CARRO */
-@keyframes home-carrito-entrada {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.home-carrito[open],
+.cartel-carrito[open] {
+    animation: carrito-entrada 0.25s ease-out;
 }
 
-@keyframes home-fondo-entrada {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.home-carrito[open]::backdrop,
+.cartel-carrito[open]::backdrop {
+    animation: fondo-entrada 0.25s ease-out;
 }
-
-.home-carrito[open] {
-    animation: home-carrito-entrada 0.25s ease-out;
-}
-
-.home-carrito[open]::backdrop {
-    animation: home-fondo-entrada 0.25s ease-out;
-}
-
 
 /* PREVIEW DE CARTEL Y GALERÍA */
 .home-avance {
@@ -1953,13 +1244,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     display: inline-block;
     padding: 15px 20px;
     border: 1px solid var(--color-acento);
-    
+
     color: var(--color-acento);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
-    
+
     text-decoration: none;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -2004,7 +1295,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.2;
 }
 
-
 /* PREGUNTAS */
 .home-faq details {
     border-bottom: 1px solid var(--color-borde);
@@ -2032,7 +1322,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.6;
 }
 
-
 /* AL ABRIR Y CERRAR LAS PREGUNTAS */
 .home-faq details[open] p {
     animation: home-faq-entrada 0.25s ease;
@@ -2049,7 +1338,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         transform: translateY(0);
     }
 }
-
 
 /* FORMULARIO */
 .home-contacto-intro {
@@ -2097,15 +1385,15 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     align-self: flex-start;
     padding: 16px 24px;
     border: none;
-    
+
     background-color: var(--color-acento);
     color: var(--color-fondo);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    
+
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -2119,14 +1407,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.5;
 }
 
-
 /* CONFIRMACIÓN DEL FORMULARIO */
 .home-confirmacion {
     margin: auto;
     width: 90%;
     max-width: 420px;
     padding: 30px;
-    
+
     border: 1px solid var(--color-borde);
     background-color: var(--color-fondo);
     color: var(--color-texto);
@@ -2149,23 +1436,24 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 }
 
 .home-confirmacion[open] {
-    animation: home-carrito-entrada 0.25s ease-out;
+    animation: carrito-entrada 0.25s ease-out;
 }
 
 .home-confirmacion[open]::backdrop {
-    animation: home-fondo-entrada 0.25s ease-out;
+    animation: fondo-entrada 0.25s ease-out;
 }
 
-
 /* FOOTER */
-.home-footer {
+.home-footer,
+.cartel-footer {
     padding: 50px 5% 90px;
     border-top: 1px solid var(--color-borde);
     background-color: var(--color-superficie);
     font-family: var(--fuente-titulos);
 }
 
-.home-footer-contenido {
+.home-footer-contenido,
+.cartel-footer-contenido {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -2173,42 +1461,49 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     gap: 35px;
 }
 
-.home-footer-marca img {
+.home-footer-marca img,
+.cartel-footer-marca img {
     display: block;
     width: 90px;
     height: auto;
     margin-bottom: 20px;
 }
 
-.home-footer-marca p {
+.home-footer-marca p,
+.cartel-footer-marca p {
     color: var(--color-secundario);
     font-size: 14px;
 }
 
-.home-footer-info {
+.home-footer-info,
+.cartel-footer-info {
     font-size: 16px;
     line-height: 1.8;
 }
 
-.home-footer-nav ul {
+.home-footer-nav ul,
+.cartel-footer-nav ul {
     display: flex;
     flex-direction: column;
     gap: 15px;
     list-style: none;
 }
 
-.home-footer-nav a {
+.home-footer-nav a,
+.cartel-footer-nav a {
     color: var(--color-texto);
     font-size: 16px;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-.home-footer-nav a:hover {
+.home-footer-nav a:hover,
+.cartel-footer-nav a:hover {
     color: var(--color-acento);
 }
 
-.home-footer-creditos {
+.home-footer-creditos,
+.cartel-footer-creditos {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -2223,35 +1518,37 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.5;
 }
 
-
 /* REDES SOCIALES */
-.home-footer-redes {
+.home-footer-redes,
+.cartel-footer-redes {
     display: flex;
     gap: 12px;
     margin-top: 15px;
 }
 
-.home-footer-redes a {
+.home-footer-redes a,
+.cartel-footer-redes a {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    
+
     width: 40px;
     height: 40px;
-    
+
     color: var(--color-texto);
     transition: color 0.2s ease;
 }
 
-.home-footer-redes a:hover {
+.home-footer-redes a:hover,
+.cartel-footer-redes a:hover {
     color: var(--color-acento);
 }
 
-.home-footer-redes i {
+.home-footer-redes i,
+.cartel-footer-redes i {
     font-size: 22px;
 }
-
 
 /* TICKETS */
 .tickets-main {
@@ -2291,7 +1588,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     font-size: 28px;
 }
 
-
 /* TARJETAS */
 .tickets-lista {
     display: flex;
@@ -2305,7 +1601,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     flex: 1;
     min-width: 250px;
     padding: 30px;
-    
+
     border: 1px solid var(--color-borde);
     background-color: var(--color-superficie);
 }
@@ -2340,15 +1636,15 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 .tickets-cantidad {
     width: 100%;
     padding: 12px;
-    
+
     border: 1px solid var(--color-borde);
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 18px;
     cursor: pointer;
-    
+
     transition: border-color 0.2s ease;
 }
 
@@ -2360,7 +1656,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
 }
-
 
 /* RESUMEN */
 .tickets-resumen {
@@ -2397,7 +1692,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     color: var(--color-acento);
 }
 
-
 /* QUÉ INCLUYE EL ABONO */
 .tickets-incluye {
     list-style: none;
@@ -2423,7 +1717,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     line-height: 1.6;
 }
 
-
 /* BOTÓN DE COMPRA Y AYUDA */
 .tickets-acciones {
     display: flex;
@@ -2436,14 +1729,12 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     align-self: auto;
 }
 
-
 #tickets-comprar:disabled,
 #tickets-anadir:disabled {
     background-color: var(--color-borde);
     color: var(--color-secundario);
     cursor: not-allowed;
 }
-
 
 /* RESUMEN DENTRO DE DIALOGUE */
 .tickets-compra-lista {
@@ -2462,7 +1753,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     gap: 15px;
 }
 
-
 /* SELECCIÓN DE FECHA */
 .tickets-fecha-selector {
     margin-bottom: 35px;
@@ -2478,15 +1768,15 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     width: 100%;
     max-width: 500px;
     padding: 14px;
-    
+
     border: 1px solid var(--color-borde);
     background-color: var(--color-superficie);
     color: var(--color-texto);
-    
+
     font-family: var(--fuente-titulos);
     font-size: 16px;
     cursor: pointer;
-    
+
     transition: border-color 0.2s ease;
 }
 
@@ -2498,7 +1788,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     outline: 2px solid var(--color-acento);
     outline-offset: 2px;
 }
-
 
 /* AVISO Y FINALIZACIÓN */
 .tickets-aviso {
@@ -2525,7 +1814,6 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     font-family: var(--fuente-titulos);
     font-size: 24px;
 }
-
 
 /* ENTRADAS DEL CARRITO */
 .carrito-lista {
@@ -2581,156 +1869,36 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     padding-left: 0;
 }
 
-
 /* RESPETAR LOS ELEMENTOS OCULTOS */
 .home-body [hidden] {
     display: none;
 }
 
-/* MEDIAQUERY MOBILE */
+/* ANIMACIÓN DEL MENÚ */
+@keyframes abrirMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   MEDIA QUERY ÚNICO · MÓVIL (≤ 530px)
+   ========================================================= */
 @media (max-width: 530px) {
 
-    .cartel-header {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .cartel-menu-btn {
-        display: flex;
-    }
-
-    .cartel-nav {
-        display: none;
-        width: 100%;
-        order: 1;
-    }
-
-    .cartel-nav.active {
-        display: block;
-        animation: abrirMenu 0.3s ease-out;
-    }
-
-    .cartel-nav .menu {
-        flex-direction: column;
-        gap: 25px;
-        padding: 20px 0;
-    }
-
-    .cartel-portada {
-        padding: 40px 5%;
-    }
-
-    .cartel-portada-info {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 30px;
-    }
-
-    .cartel-ubicacion {
-        line-height: 1.5;
-    }
-
-    .cartel-datos {
-        flex-direction: column;
-    }
-
-    .cartel-datos > div {
-        min-width: 0;
-    }
-
-    .cartel-experiencia {
-        padding: 45px 5%;
-    }
-
-    .cartel-experiencia h2 {
-        font-size: 32px;
-    }
-
     .cartel-canales {
         flex-direction: column;
-    }
-
-    .cartel-canal {
-        min-width: 0;
-    }
-
-    .cartel-avance {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-        padding: 45px 5%;
-    }
-
-    .cartel-avance-numero {
-        font-size: 70px;
-    }
-
-    .cartel-avance h2 {
-        font-size: 32px;
-    }
-
-
-    .cartel-tickets-mobile {
-        display: block;
-    }
-
-    .cartel-header .cartel-tickets-desktop {
-        display: none;
-    }
-
-    .cartel-ayuda {
-        flex-direction: column;
-        gap: 40px;
-        padding: 45px 5%;
-    }
-
-    .cartel-faq,
-    .cartel-contacto {
-        min-width: 0;
-    }
-
-    .cartel-footer {
-        text-align: center;
-    }
-
-    .cartel-footer-contenido,
-    .cartel-footer-creditos {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cartel-footer-marca img {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cartel-footer-redes {
-        justify-content: center;
-    }
-
-    .cartel-hero {
-        padding: 40px 20px;
-    }
-
-    .cartel-hero h1 {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .cartel-hero p {
-        font-size: 14px;
-    }
-
-    .cartel-canales {
         padding: 30px 20px;
     }
 
-    .cartel-canales-grid {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        gap: 15px;
-    }
-
     .cartel-canal {
+        min-width: 0;
         padding: 20px;
     }
 
@@ -2745,32 +1913,18 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         font-size: 12px;
     }
 
-    .cartel-viernes,
-    .cartel-sabado,
-    .cartel-domingo {
+    .cartel-grid-escenarios {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
 
-    .cartel-viernes-cuadro,
-    .cartel-sabado-cuadro,
-    .cartel-domingo-cuadro {
+    .cartel-cuadro {
         padding: 20px;
     }
 
-    .cartel-horario {
-        font-size: 13px;
-    }
-
-    .cartel-carrito,
-    .cartel-confirmacion {
+    .cartel-carrito {
         width: 90vw;
         max-width: 100%;
         padding: 20px;
-    }
-
-    .cartel-formulario-grupo {
-        flex-direction: column;
     }
 
     .cartel-tickets {
@@ -2781,7 +1935,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     }
 
     .cartel-tickets h2 {
-        font-size: 30px; /* Tamaño del texto adaptado a pantallas pequeñas */
+        font-size: 30px;
         line-height: 1.1;
     }
 
@@ -2790,8 +1944,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     }
 
     .cartel-comprar {
-        width: 100%; 
-        box-sizing: border-box;
+        width: 100%;
         padding: 16px 20px;
         font-size: 12px;
     }
@@ -2812,20 +1965,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 
     /* MAPA */
     .gallery-mapa-contenedor {
-        display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         width: 100%;
     }
 
     .gallery-mapa-lienzo {
         width: 100%;
         min-height: auto;
-    }
-
-    .gallery-mapa-lienzo img {
-        width: 100%;
-        height: auto;
-        display: block;
     }
 
     .gallery-mapa-informacion {
@@ -2840,8 +1986,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
 
     /* GALERÍA DE FOTOS */
     .gallery-rejilla-fotos {
-        display: grid;
-        grid-template-columns: 1fr !important; /* Muestra las fotos de 1 en 1 */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -2863,8 +2008,7 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     }
 
     .gallery-visor-cuerpo {
-        display: grid;
-        grid-template-columns: 1fr; /* Foto arriba, detalles abajo */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -2896,32 +2040,32 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         z-index: 30;
     }
 
-}
-
-/* MEDIAQUERY MOBILE */
-@media (max-width: 530px) {
-
-    .home-header {
+    .home-header,
+    .cartel-header {
         flex-wrap: wrap;
         gap: 12px;
     }
 
-    .home-menu-btn {
+    .home-menu-btn,
+    .cartel-menu-btn {
         display: flex;
     }
 
-    .home-nav {
+    .home-nav,
+    .cartel-nav {
         display: none;
         width: 100%;
         order: 1;
     }
 
-    .home-nav.active {
+    .home-nav.active,
+    .cartel-nav.active {
         display: block;
         animation: abrirMenu 0.3s ease-out;
     }
 
-    .home-nav .menu {
+    .home-nav .menu,
+    .cartel-nav .menu {
         flex-direction: column;
         gap: 25px;
         padding: 20px 0;
@@ -2949,11 +2093,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         min-width: 0;
     }
 
-    .home-experiencia {
+    .home-experiencia,
+    .cartel-experiencia {
         padding: 45px 5%;
     }
 
-    .home-experiencia h2 {
+    .home-experiencia h2,
+    .cartel-experiencia h2 {
         font-size: 32px;
     }
 
@@ -2980,11 +2126,13 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         font-size: 32px;
     }
 
-    .home-tickets-mobile {
+    .home-tickets-mobile,
+    .cartel-tickets-mobile {
         display: block;
     }
 
-    .home-header .home-tickets-desktop {
+    .home-header .home-tickets-desktop,
+    .cartel-header .cartel-tickets-desktop {
         display: none;
     }
 
@@ -2999,22 +2147,27 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
         min-width: 0;
     }
 
-    .home-footer {
+    .home-footer,
+    .cartel-footer {
         text-align: center;
     }
 
     .home-footer-contenido,
-    .home-footer-creditos {
+    .home-footer-creditos,
+    .cartel-footer-contenido,
+    .cartel-footer-creditos {
         flex-direction: column;
         align-items: center;
     }
 
-    .home-footer-marca img {
+    .home-footer-marca img,
+    .cartel-footer-marca img {
         margin-left: auto;
         margin-right: auto;
     }
 
-    .home-footer-redes {
+    .home-footer-redes,
+    .cartel-footer-redes {
         justify-content: center;
     }
 
@@ -3045,18 +2198,5 @@ SECCIÓN 3: GALERÍA DE FOTOS (9 ITEMS)
     .tickets-acciones .home-enviar {
         width: 100%;
     }
-}
 
-
-/* ANIMACIÓN DEL MENÚ */
-@keyframes abrirMenu {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
